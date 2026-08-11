@@ -20,6 +20,7 @@
 
   /* Shadows */
   --shadow-btn: 2px 4px 9px 0px rgba(0, 0, 0, 0.15);
+  --btn-shadow-hover: 0 6px 20px rgba(91, 158, 0, 0.5);
 }
 
 /* ==========================================================================
@@ -675,4 +676,361 @@ img {
 /* Ховер-ефект для кнопки мови */
 .lang-select__current:hover {
   color: var(--color-accent) !important;
+}
+
+/* ==========================================================================
+   HERO SECTION / SLIDER & GRID (COMPLETE MONOLITHIC CSS)
+   ========================================================================== */
+
+.hero-section {
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* Контейнер слайдера */
+.hero-section__swiper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 30px; /* Місце під пагінацію внизу */
+}
+
+.hero-section__wrapper {
+  align-items: stretch;
+}
+
+/* ==========================================================================
+   HERO SECTION / SLIDER & GRID (COMPLETE MONOLITHIC CSS)
+   ========================================================================== */
+
+.hero-section {
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* Контейнер слайдера */
+.hero-section__swiper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 28px; /* Відступ під пагінацію */
+  
+  /* Бокові відступи для зручного тач-свайпу та запобігання прилипання до країв */
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.hero-section__wrapper {
+  align-items: stretch;
+}
+
+/* --------------------------------------------------------------------------
+   HERO CARD STYLES
+   -------------------------------------------------------------------------- */
+
+.hero-card {
+  background: var(--card-bg, linear-gradient(135deg, var(--color-accent-soft) 0%, var(--color-white) 100%));
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  /* Фіксована мінімальна висота для стабільної сітки */
+  min-height: 230px;
+  height: 100%;
+  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--duration) var(--timing-function),
+              box-shadow var(--duration) var(--timing-function);
+}
+
+.hero-card.swiper-slide {
+  background: var(--card-bg) !important;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.hero-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Двоколонкова структура (Зображення + Контент) */
+.hero-card__inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-card--reverse .hero-card__inner {
+  flex-direction: row-reverse;
+}
+
+/* Зображення */
+.hero-card__img-wrapper {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-card__img {
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.08));
+}
+
+/* Текстовий блок */
+.hero-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  height: 100%;
+}
+
+.hero-card__content > h4 {
+  display: none;
+}
+
+.hero-card__subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.hero-card__title {
+  font-family: var(--main-font);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  line-height: 1.25;
+  margin: 0 0 8px 0;
+}
+
+.hero-card__desc {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--color-text-main);
+  margin: 0 0 14px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Кнопка картки */
+.hero-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow: var(--shadow-btn);
+  margin-top: auto;
+  transition: background-color var(--duration) var(--timing-function),
+              box-shadow var(--duration) var(--timing-function),
+              transform var(--duration) var(--timing-function);
+}
+
+.hero-card__btn:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: var(--btn-shadow-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   НАПІВПРОЗОРІ СТРІЛКИ З ТІННЮ (НАСУНУТІ НА КАРТКИ)
+   -------------------------------------------------------------------------- */
+
+.hero-section__arrow {
+  position: absolute;
+  top: calc(50% - 14px); /* Центрування по висоті карток */
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  
+  /* Напівпрозорий білий фон із розмиттям підкладки */
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-accent);
+  box-shadow: var(--shadow-btn); /* Використання фірмової тіні */
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+  transition: transform var(--duration) var(--timing-function),
+              background-color var(--duration) var(--timing-function),
+              color var(--duration) var(--timing-function),
+              box-shadow var(--duration) var(--timing-function);
+}
+
+/* Зсув стрілок УСЕРЕДИНУ карток (щоб не зрізалися) */
+.hero-section__prev {
+  left: 12px;
+}
+
+.hero-section__next {
+  right: 12px;
+}
+
+/* Ховер-ефекти */
+.hero-section__arrow:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--color-primary-hover);
+  transform: translateY(-50%) scale(1.06);
+  box-shadow: var(--btn-shadow-hover);
+}
+
+.hero-section__arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.hero-section__arrow.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Якщо бажаєте ВСЕОДНО сховати стрілки до 1024px і залишити тільки для тач-свайпу:
+   Розкоментуйте цей блок нижче:
+*/
+/*
+@media (max-width: 1024px) {
+  .hero-section__arrow {
+    display: none !important;
+  }
+}
+*/
+
+/* --------------------------------------------------------------------------
+   ПАГІНАЦІЯ (ЗНИЗУ ПО ЦЕНТРУ)
+   -------------------------------------------------------------------------- */
+
+.hero-section__pagination.swiper-pagination {
+  position: absolute;
+  bottom: 0 !important;
+  left: 0;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px;
+  margin: 0 !important;
+}
+
+.hero-section__pagination .swiper-pagination-bullet {
+  background-color: var(--color-border);
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  margin: 0 !important;
+  transition: all var(--duration) var(--timing-function);
+}
+
+.hero-section__pagination .swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP GRID (1025px+)
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1025px) {
+  .hero-section__swiper {
+    overflow: visible;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero-section__wrapper {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+    transform: none !important;
+  }
+
+  .hero-card.swiper-slide {
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  .hero-card__content > h4 {
+    display: block;
+  }
+
+  .hero-card--large {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    padding: 28px;
+  }
+
+  .hero-card--large .hero-card__inner {
+    gap: 24px;
+  }
+
+  .hero-card--large .hero-card__img-wrapper {
+    flex: 0 0 45%;
+  }
+
+  .hero-card--large .hero-card__img {
+    max-height: 280px;
+  }
+
+  .hero-card--large .hero-card__title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .hero-card--large .hero-card__desc {
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 20px;
+    -webkit-line-clamp: 5;
+  }
+
+  .hero-card--large .hero-card__btn {
+    padding: 10px 24px;
+    font-size: 12px;
+  }
+
+  /* Приховуємо слайдерні елементи у десктопній сітці */
+  .hero-section__arrow,
+  .hero-section__pagination {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-card__inner {
+    flex-direction: row;
+  }
 }
