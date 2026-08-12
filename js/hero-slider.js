@@ -25,11 +25,6 @@ window.addEventListener('DOMContentLoaded', () => {
             clickable: true,
           },
           
-          navigation: {
-            nextEl: '.hero-section__next',
-            prevEl: '.hero-section__prev',
-          },
-          
           breakpoints: {
             640: {
               slidesPerView: 2,

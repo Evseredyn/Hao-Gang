@@ -67,41 +67,40 @@
 
             </div>
 
-<!-- Нижня лінія (Десктоп 1024px+: Пошук + Категорії) -->
-<div class="header__bottom desktop-only">
-    
-    <!-- Пошук -->
-    <form class="header__search search-form" action="/search" method="get">
-        <input type="search" class="search-form__input" placeholder="Пошук товарів..." name="s">
-        <button type="submit" class="search-form__btn" aria-label="Шукати">
-            <svg width="16" height="16"><use href="images/icons.svg#search"></use></svg>
-        </button>
-    </form>
+            <!-- Нижня лінія (Десктоп 1024px+: Пошук + Категорії) -->
+            <div class="header__bottom desktop-only">
+                
+                <!-- Пошук -->
+                <form class="header__search search-form" action="/search" method="get">
+                    <input type="search" class="search-form__input" placeholder="Пошук товарів..." name="s">
+                    <button type="submit" class="search-form__btn" aria-label="Шукати">
+                        <svg width="16" height="16"><use href="images/icons.svg#search"></use></svg>
+                    </button>
+                </form>
 
-    <!-- Категорії -->
-    <div class="categories-wrapper">
-        <nav class="header__categories categories-nav">
-            <ul class="categories-nav__list">
-                <li class="categories-nav__item"><a href="/biodobavky" class="categories-nav__link">Біодобавки</a></li>
-                <li class="categories-nav__item"><a href="/turmalin" class="categories-nav__link">Турмалінова продукція</a></li>
-                <li class="categories-nav__item"><a href="/zhinkam" class="categories-nav__link">Для жінок</a></li>
-                <li class="categories-nav__item"><a href="/cholovikam" class="categories-nav__link">Для чоловіків</a></li>
-                <li class="categories-nav__item"><a href="/hyhiiena" class="categories-nav__link">Гігієна</a></li>
-                <li class="categories-nav__item"><a href="/blyzna" class="categories-nav__link">Нижня білизна</a></li>
-                <li class="categories-nav__item"><a href="/plastyri" class="categories-nav__link">Пластирі</a></li>
-            </ul>
-        </nav>
-    </div>
+                <!-- Категорії -->
+                <div class="categories-wrapper">
+                    <nav class="header__categories categories-nav">
+                        <ul class="categories-nav__list">
+                            <li class="categories-nav__item"><a href="/biodobavky" class="categories-nav__link">Біодобавки</a></li>
+                            <li class="categories-nav__item"><a href="/turmalin" class="categories-nav__link">Турмалінова продукція</a></li>
+                            <li class="categories-nav__item"><a href="/zhinkam" class="categories-nav__link">Для жінок</a></li>
+                            <li class="categories-nav__item"><a href="/cholovikam" class="categories-nav__link">Для чоловіків</a></li>
+                            <li class="categories-nav__item"><a href="/hyhiiena" class="categories-nav__link">Гігієна</a></li>
+                            <li class="categories-nav__item"><a href="/blyzna" class="categories-nav__link">Нижня білизна</a></li>
+                            <li class="categories-nav__item"><a href="/plastyri" class="categories-nav__link">Пластирі</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
-    <!-- Кнопка перемикача -->
-    <button class="categories-toggle" id="categoriesToggle" aria-label="Розгорнути категорії">
-        <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
-            <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-    </button>
+                <!-- Кнопка перемикача -->
+                <button class="categories-toggle" id="categoriesToggle" aria-label="Розгорнути категорії">
+                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                        <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
 
-</div>
-
+            </div>
         </div>
     </header>
 
@@ -115,12 +114,13 @@
                         
                         <!-- 1. Велика картка (Акційна) -->
                         <article class="hero-card hero-card--large swiper-slide" style="--card-bg: linear-gradient(135deg, #FAD0EC 0%, #F1A7D8 100%);">
+                            <h3 class="hero-card__title">ЕКСТРАКТ ТРОЯНДИ — ЕСТЕТИКА, ПРЕМІАЛЬНІСТЬ ТА КРАСА!</h3>
                             <div class="hero-card__inner">
                                 <div class="hero-card__img-wrapper">
                                     <img src="./images/products/rose.png" alt="Екстракт троянди" class="hero-card__img">
                                 </div>
                                 <div class="hero-card__content">
-                                    <h3 class="hero-card__title">ЕКСТРАКТ ТРОЯНДИ — ЕСТЕТИКА, ПРЕМІАЛЬНІСТЬ ТА КРАСА!</h3>
+                                    <!-- <h3 class="hero-card__title">ЕКСТРАКТ ТРОЯНДИ — ЕСТЕТИКА, ПРЕМІАЛЬНІСТЬ ТА КРАСА!</h3> -->
                                     <h4 class="hero-card__subtitle">М'яке очищення організму та природна краса вашої шкіри зсередини.</h4>
                                     <p class="hero-card__desc">Концентрований екстракт троянди сприяє нормалізації травлення, покращує стан шкіри та надає легке почуття легкості щодня. Ідеальне доповнення до вашого щоденного ритуалу догляду.</p>
                                     <a href="#" class="hero-card__btn">СПРОБУВАТИ ЗАРАЗ</a>
@@ -130,13 +130,13 @@
 
                         <!-- 2. Мала картка з реверсом (картинка праворуч) -->
                         <article class="hero-card hero-card--reverse swiper-slide" style="--card-bg: linear-gradient(135deg, #DCE4EC 0%, #C3D1E0 100%);">
+                            <h3 class="hero-card__title">ПРИРОДНИЙ СОРБЕНТ ТА ДЕТОКС-ЗАХИСТ</h3>
                             <div class="hero-card__inner">
                                 <div class="hero-card__img-wrapper">
                                     <img src="./images/products/hitozan.png" alt="Природний сорбент" class="hero-card__img">
                                 </div>
                                 <div class="hero-card__content">
-                                    <h3 class="hero-card__title">ПРИРОДНИЙ СОРБЕНТ ТА ДЕТОКС-ЗАХИСТ</h3>
-                                    <p class="hero-card__desc">Потужне зв'язування жирів та підтримка балансу.</p>
+                                    <p class="hero-card__desc">Натуральний морський хітозан, збагачений мікроелементами перлів. Допомагає виводити токсини та підтримує здоровий метаболізм.</p>
                                     <a href="#" class="hero-card__btn">ДЕТАЛЬНІШЕ</a>
                                 </div>
                             </div>
@@ -144,12 +144,12 @@
 
                         <!-- 3. Картка: Кордицепс -->
                         <article class="hero-card hero-card--row swiper-slide" style="--card-bg: linear-gradient(135deg, #F9E79F 0%, #F5CBA7 100%);">
+                            <h3 class="hero-card__title">КОРДИЦЕПС (CORDYCEPS PURE)</h3>
                             <div class="hero-card__inner">
                                 <div class="hero-card__img-wrapper">
                                     <img src="./images/products/cordyceps.png" alt="Кордицепс Pure" class="hero-card__img">
                                 </div>
                                 <div class="hero-card__content">
-                                    <h3 class="hero-card__title">КОРДИЦЕПС (CORDYCEPS PURE)</h3>
                                     <p class="hero-card__desc">Енергія та витривалість від природи.</p>
                                     <a href="#" class="hero-card__btn">В КАТАЛОГ</a>
                                 </div>
@@ -158,12 +158,12 @@
 
                         <!-- 4. Картка: Ган Бао -->
                         <article class="hero-card hero-card--row swiper-slide" style="--card-bg: linear-gradient(135deg, #ABEBC6 0%, #A2D9CE 100%);">
+                            <h3 class="hero-card__title">ГАН БАО (GAN BAO)</h3>
                             <div class="hero-card__inner">
                                 <div class="hero-card__img-wrapper">
                                     <img src="./images/products/ganbao.png" alt="Ган Бао" class="hero-card__img">
                                 </div>
                                 <div class="hero-card__content">
-                                    <h3 class="hero-card__title">ГАН БАО (GAN BAO)</h3>
                                     <p class="hero-card__desc">Чоловіче та жіноче здоров'я / Ефективне очищення організму.</p>
                                     <a href="#" class="hero-card__btn">ЗАМОВИТИ</a>
                                 </div>
@@ -173,7 +173,7 @@
                         <!-- 5. Картка: Фітопластирі (Структура за зразком скріншота) -->
                         <article class="hero-card swiper-slide" style="--card-bg: linear-gradient(135deg, #AED6F1 0%, #85C1E9 100%);">
                             <h3 class="hero-card__title">ФІТОПЛАСТИРІ HAOGANG (HERBAL PLASTERS)</h3>
-                            <div class="hero-card__inner">
+                            <div class="hero-card__inner vertical">
                                 <div class="hero-card__img-wrapper hero-card__img-wrapper--full">
                                     <img src="./images/products/plasters-group.png" alt="Фітопластирі Haogang" class="hero-card__img">
                                 </div>
@@ -182,19 +182,6 @@
                                 </div>
                             </div>
                         </article>
-                    </div>
-                                            
-                    <!-- Елементи керування Swiper -->
-                    <div class="hero-section__controls">
-                        <button class="hero-section__arrow hero-section__prev" aria-label="Попередній слайд">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-                        </button>
-                        
-                        <!-- <div class="hero-section__pagination swiper-pagination"></div> -->
-                        
-                        <button class="hero-section__arrow hero-section__next" aria-label="Наступний слайд">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-                        </button>
                     </div>
 
                     <!-- Пагінація для мобільних/планшетів -->
