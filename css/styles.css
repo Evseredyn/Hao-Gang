@@ -1451,3 +1451,122 @@ img {
     height: 80px;
   }
 }
+
+
+
+/* ==========================================
+   СЕКЦІЯ СТАТТЕЙ / БЛОГ
+========================================== */
+.blog-posts {
+  padding: 60px 0;
+  background-color: #f4f8f3; /* Світло-салатовий відтінок під HAOGANG */
+  background-image: url('../images/bg-posts-green.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.blog-posts__title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1a1a1a;
+  margin-bottom: 32px;
+}
+
+/* Desktops: 4 колонки */
+.blog-posts__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Картка статті */
+.post-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.post-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Співвідношення 16:9 */
+  overflow: hidden;
+  background-color: #eef3ed;
+}
+
+.post-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-card__image {
+  transform: scale(1.04);
+}
+
+.post-card__content {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.post-card__title {
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #222222;
+  text-align: center;
+  margin: 0;
+}
+
+/* ==========================================
+   АДАПТИВНІСТЬ (Планшети та Мобільні)
+========================================== */
+@media (max-width: 991px) {
+  /* Відмовляємося від слайдера на користь вертикального стеку */
+  .blog-posts__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 16px;
+  }
+
+  .post-card__title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .blog-posts {
+    padding: 40px 0;
+  }
+
+  .blog-posts__title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+}
