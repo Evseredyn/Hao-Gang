@@ -601,11 +601,11 @@ img {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 56px;
-  height: 56px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background-color: var(--color-white);
-  border: 3px solid #008000;
+  border: 3px solid #00aa00;
   color: #008000;
   display: flex;
   align-items: center;
@@ -1051,7 +1051,7 @@ img {
   }
 
   .hero-card--large .hero-card__img {
-    max-height: 280px;
+    max-height: 420px;
   }
 
   .hero-card--large .hero-card__title {
@@ -1081,5 +1081,373 @@ img {
 @media (min-width: 1440px) {
   .hero-card__inner {
     flex-direction: row;
+  }
+}
+
+
+/* ==========================================================================
+   CATALOG SECTION (WITH INTEGRATED GUARANTEES)
+   ========================================================================== */
+
+.catalog-section {
+  padding: 40px 0;
+  width: 100%;
+}
+
+.catalog-section__container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.catalog-section__title {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: var(--color-text-main, #1A1A1A);
+}
+
+/* --------------------------------------------------------------------------
+   1. PROMO BANNER
+   -------------------------------------------------------------------------- */
+
+.catalog-banner {
+  background: linear-gradient(135deg, #E2F5B6 0%, #D2EF9A 100%);
+  border-radius: 16px;
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.catalog-banner__content {
+  flex: 1;
+  max-width: 650px;
+}
+
+.catalog-banner__title {
+  font-size: clamp(1rem, 0.8rem + 1vw, 1.35rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.catalog-banner__desc {
+  font-size: clamp(0.75rem, 0.65rem + 0.5vw, 0.95rem);
+  line-height: 1.45;
+  margin-bottom: 20px;
+  color: var(--color-text-muted, #333333);
+}
+
+.catalog-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background-color: var(--color-primary, #3B7E28);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow: var(--shadow-btn, 0 4px 10px rgba(0,0,0,0.1));
+  white-space: nowrap;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.catalog-banner__btn:hover {
+  background-color: var(--color-primary-hover, #2E651F);
+  transform: translateY(-2px);
+}
+
+.catalog-banner__img-wrapper {
+  flex: 0 0 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.catalog-banner__img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   2. CATEGORIES SWIPER / GRID
+   -------------------------------------------------------------------------- */
+
+.catalog-categories {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.catalog-categories__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-primary, #3B7E28);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* Стан при наведенні */
+.catalog-categories__arrow:hover {
+  background-color: var(--color-primary, #3B7E28);
+  color: #FFFFFF;
+  border-color: var(--color-primary, #3B7E28);
+  box-shadow: 0 4px 12px rgba(59, 126, 40, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Стан при натисканні */
+.catalog-categories__arrow:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Неактивний стан (якщо Swiper досяг кінця) */
+.catalog-categories__arrow.swiper-button-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text-main, #1A1A1A);
+  text-align: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.category-card__icon-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #F0F0F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.category-card__img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.category-card__title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* .category-card--active .category-card__icon-wrapper,
+.category-card:hover .category-card__icon-wrapper {
+  background-color: #A3D991;
+  border-color: var(--color-primary, #3B7E28);
+  transform: scale(1.05);
+} */
+
+.catalog-section__divider {
+  border: none;
+  height: 1px;
+  background-color: #E0E0E0;
+  margin: 32px 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. GUARANTEES BLOCK
+   -------------------------------------------------------------------------- */
+
+.catalog-guarantees {
+  background-color: #EBF3E8;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.catalog-guarantees__header {
+  /* flex: 0 0 35%; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  gap: 12px;
+}
+
+.catalog-guarantees__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary, #3B7E28);
+  /* margin-bottom: 8px; */
+}
+
+.catalog-guarantees__subtitle {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #555555;
+}
+
+.catalog-guarantees__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Повертаємо однакову ширину для всіх 4 карток */
+  gap: 16px;
+  align-items: center; /* Дозволяє карткам збільшуватися по висоті незалежно одна від одної */
+}
+
+
+.guarantee-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  min-height: 100px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.guarantee-card__text {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #222222;
+  /* margin-top: 12px; */
+}
+@media (min-width: 1024px) {
+  .catalog-card__text {
+  /* font-size: 1.2rem; */
+  }
+}
+.catalog-guarantees__badge {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+/* .catalog-guarantees__badge svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--color-primary, #3B7E28);
+  fill: currentColor;
+}
+.guarantee-card__icon svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--color-primary, #3B7E28);
+  stroke: currentColor;
+} */
+ /* Бейдж щита (суцільна іконка з заливкою) */
+.catalog-guarantees__badge svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: var(--color-primary, #3B7E28);
+}
+
+/* Іконки у картках (контурні іконки) */
+.guarantee-card__icon svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--color-primary, #3B7E28);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (min-width: 768px) {
+  .guarantee-card__icon svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+/* --------------------------------------------------------------------------
+   MEDIA QUERIES (RESPONSIVE ADAPTATION)
+   -------------------------------------------------------------------------- */
+
+/* Tablet (До 1024px) */
+@media (max-width: 1024px) {
+  .catalog-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .catalog-banner__content {
+    max-width: 100%;
+  }
+
+  .catalog-banner__img-wrapper {
+    flex: 0 0 auto;
+    max-width: 280px;
+  }
+
+  .catalog-guarantees {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .catalog-guarantees__header {
+    /* flex: 0 0 auto; */
+  }
+
+  .catalog-guarantees__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+  .catalog-section {
+    padding: 24px 0;
+  }
+
+  .catalog-banner {
+    padding: 16px;
+  }
+
+  .catalog-guarantees__grid {
+    grid-template-columns: 1fr; /* Вертикальний потік на найменших екранах */
+  }
+
+  .catalog-categories__arrow {
+    display: none !important; /* На мобільному використовується тільки тач-свайп */
+  }
+
+  .category-card__icon-wrapper {
+    width: 80px;
+    height: 80px;
   }
 }

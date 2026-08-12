@@ -106,7 +106,7 @@
 
     <main>
         <!-- Hero-section -->
-         <section class="hero-section">
+        <section class="hero-section">
             <div class="container">
                 
                 <div class="hero-section__swiper swiper">
@@ -191,8 +191,169 @@
             </div>
         </section>
 
-        <!-- Hero-section -->
+        <!-- Catalog -->
+        <section class="catalog-section">
+            <div class="container catalog-section__container">
+                
+                <!-- Заголовок секції -->
+                <h2 class="catalog-section__title">КАТАЛОГ</h2>
 
+                <!-- 1. Промо-банер каталогу -->
+                <div class="catalog-banner">
+                <div class="catalog-banner__content">
+                    <h3 class="catalog-banner__title">ПРИРОДНА СИЛА ТА ІННОВАЦІЇ ДЛЯ ВАШОГО ЗДОРОВ'Я</h3>
+                    <p class="catalog-banner__desc">
+                    Продукція Haogang поєднує рецепти східної фітотерапії та сучасні європейські стандарти якості. Оберіть свій комплекс для високого тонусу й довголіття.
+                    </p>
+                    <a href="#" class="catalog-banner__btn">ДИВИТИСЯ ВСІ ТОВАРИ</a>
+                </div>
+                <div class="catalog-banner__img-wrapper">
+                    <img src="/images/products/catalog-banner-products.png" alt="Продукція Haogang" class="catalog-banner__img">
+                </div>
+                </div>
+
+                <!-- 2. Слайдер / Сітка категорій -->
+                <div class="catalog-categories">
+                <!-- Стрілка Ліворуч (на мобільних/планшетах ховається або переходить у свайп) -->
+                    <button class="catalog-categories__arrow catalog-categories__prev" aria-label="Попередні категорії">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+
+                    <div class="catalog-categories__swiper swiper">
+                        <div class="swiper-wrapper">
+                        
+                        <!-- Категорія 1 -->
+                        <a href="#" class="category-card swiper-slide">
+                            <div class="category-card__icon-wrapper">
+                            <img src="/images/products/ganbao.png" alt="Бади" class="category-card__img">
+                            </div>
+                            <span class="category-card__title">Бади</span>
+                        </a>
+
+                        <!-- Категорія 2 -->
+                        <a href="#" class="category-card swiper-slide">
+                            <div class="category-card__icon-wrapper">
+                            <img src="/images/products/ganbao.png" alt="Турмалінова продукція" class="category-card__img">
+                            </div>
+                            <span class="category-card__title">Турмалінова продукція</span>
+                        </a>
+
+                        <!-- Категорія 3 -->
+                        <a href="#" class="category-card swiper-slide">
+                            <div class="category-card__icon-wrapper">
+                            <img src="/images/products/ganbao.png" alt="Для жінок" class="category-card__img">
+                            </div>
+                            <span class="category-card__title">Для жінок</span>
+                        </a>
+
+                        <!-- Категорія 4 -->
+                        <a href="#" class="category-card swiper-slide">
+                            <div class="category-card__icon-wrapper">
+                            <img src="/images/products/ganbao.png" alt="Гігієна" class="category-card__img">
+                            </div>
+                            <span class="category-card__title">Гігієна</span>
+                        </a>
+
+                        <!-- Категорія 5 -->
+                        <a href="#" class="category-card swiper-slide">
+                            <div class="category-card__icon-wrapper">
+                            <img src="/images/products/ganbao.png" alt="Пластирі" class="category-card__img">
+                            </div>
+                            <span class="category-card__title">Пластирі</span>
+                        </a>
+
+                        <!-- Категорія 6 -->
+                        <a href="#" class="category-card swiper-slide">
+                            <div class="category-card__icon-wrapper">
+                            <img src="/images/products/ganbao.png" alt="Мила" class="category-card__img">
+                            </div>
+                            <span class="category-card__title">Мила</span>
+                        </a>
+
+                        <!-- Категорія 7 -->
+                        <a href="#" class="category-card swiper-slide">
+                            <div class="category-card__icon-wrapper">
+                            <img src="/images/products/ganbao.png" alt="Чаї" class="category-card__img">
+                            </div>
+                            <span class="category-card__title">Чаї</span>
+                        </a>
+
+                        <!-- Категорія 8 (Активна з курсором) -->
+                        <a href="#" class="category-card swiper-slide">
+                            <div class="category-card__icon-wrapper">
+                            <img src="/images/products/ganbao.png" alt="Чаї" class="category-card__img">
+                            </div>
+                            <span class="category-card__title">Чаї</span>
+                        </a>
+
+                        </div>
+                    </div>
+
+                    <!-- Стрілка Праворуч -->
+                    <button class="catalog-categories__arrow catalog-categories__next" aria-label="Наступні категорії">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    </div>
+
+                    <!-- Розділювальна лінія -->
+                    <hr class="catalog-section__divider">
+
+                    <!-- 3. Блок гарантій (Інтегроване доповнення) -->
+                    <div class="catalog-guarantees">
+                        <div class="catalog-guarantees__header">
+                            <div class="catalog-guarantees__badge">
+                                <svg class="icon" width="24" height="24">
+                                    <use href="images/icons.svg#icon-shield-check"></use>
+                                </svg>
+                                <h4 class="catalog-guarantees__title">Гарантія якості Haogang</h4>
+                            </div>
+                            <div class="catalog-guarantees__text">
+                                <p class="catalog-guarantees__subtitle">Якість, якій ви можете довіряти: стандартизація складів, перевірене зберігання та повний контроль на кожному етапі.</p>
+                            </div>
+                        </div>
+
+                        <!-- Карточки гарантій -->
+                        <list class="catalog-guarantees__grid">
+                            <li class="guarantee-card">
+                                <div class="guarantee-card__icon">
+                                    <svg class="icon" width="28" height="28">
+                                        <use href="images/icons.svg#icon-badge"></use>
+                                    </svg>
+                                </div>
+                                <span class="guarantee-card__text">Оригінальна продукція</span>
+                            </li>
+
+                            <li class="guarantee-card">
+                                <div class="guarantee-card__icon">
+                                    <svg class="icon" width="28" height="28">
+                                        <use href="images/icons.svg#icon-document"></use>
+                                    </svg>
+                                </div>
+                                <span class="guarantee-card__text">Перевірений склад</span>
+                            </li>
+
+                            <li class="guarantee-card">
+                                <div class="guarantee-card__icon">
+                                    <svg class="icon" width="28" height="28">
+                                        <use href="images/icons.svg#icon-leaf"></use>
+                                    </svg>
+                                </div>
+                                <span class="guarantee-card__text">Натуральні компоненти</span>
+                            </li>
+
+                            <li class="guarantee-card">
+                                <div class="guarantee-card__icon">
+                                    <svg class="icon" width="28" height="28">
+                                        <use href="images/icons.svg#icon-truck"></use>
+                                    </svg>
+                                </div>
+                                <span class="guarantee-card__text">Швидка та надійна доставка</span>
+                            </li>
+                        </list>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Висувне мобільне меню (Off-canvas Drawer) -->
@@ -278,6 +439,7 @@
     <script defer src="./js/mob-menu.js"></script>
     <script defer src="./js/header.js"></script>
     <script defer src="./js/hero-slider.js"></script>
+    <script defer src="./js/catalog.js"></script>
     <script defer src="./js/scroll.js"></script>
     <script defer src="./js/main.js"></script>
 </body>
