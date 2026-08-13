@@ -44,6 +44,13 @@ body {
   background-color: var(--color-white);
   line-height: 1.5;
 }
+@media (min-width: 1441px) {
+  body { /* або main / body */
+    max-width: 1440px;
+    margin: 0 auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05); /* за бажанням: легка тінь по боках */
+  }
+}
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
@@ -1505,35 +1512,93 @@ img {
   background-position: right 12px center; /* Стрілочка буде відступати 12px від правого краю */
 }
 
-/* Слайдер */
+/* ==========================================================================
+   СЛАЙДЕР ТОВАРІВ (SWIPER)
+   ========================================================================== */
+
 .products-slider {
   position: relative;
-  padding: 10px 5px;
+  /* Додаємо падінги з боків, щоб круглі стрілки та тіні карток не обрізалися */
+  padding: 10px 20px; 
 }
+
+/* Стрілки навігації */
 .products-slider .swiper-button-prev,
 .products-slider .swiper-button-next {
   width: 40px;
   height: 40px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Легка тінь як на макеті */
-  color: #71a329; /* Колір самої стрілочки */
-  margin-top: -20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  color: #71a329;
+  
+  /* Точне вертикальне центрування без margin-top */
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0; 
+  z-index: 10;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-/* Зменшуємо розмір дефолтних іконок стрілок Swiper */
+/* Ефект при наведенні на стрілки */
+.products-slider .swiper-button-prev:hover,
+.products-slider .swiper-button-next:hover {
+  background-color: #71a329;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Кастомізація розміру дефолтної іконки Swiper */
 .products-slider .swiper-button-prev::after,
 .products-slider .swiper-button-next::after {
-  font-size: 16px; 
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 700;
 }
 
-/* Позиціювання ближче до країв карток */
+/* Точне позиціонування по краях */
 .products-slider .swiper-button-prev {
-  left: 0px; 
+  left: 1;
 }
+
 .products-slider .swiper-button-next {
-  right: 0px;
+  right: 1;
+}
+
+/* Ховаємо дефолтний недоступний стан або стилізуємо його */
+.products-slider .swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   АДАПТИВ: Мобільна версія (вертикальна колонка)
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .products-slider {
+    padding: 0; /* На мобільному забираємо бічні падінги для стрілок */
+  }
+
+  .products-slider .swiper-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform: none !important;
+    width: 100% !important;
+  }
+
+  .products-slider .swiper-slide {
+    width: 100% !important;
+    height: auto;
+    margin: 0 !important;
+  }
+
+  /* Повністю ховаємо стрілки */
+  .products-slider .swiper-button-prev,
+  .products-slider .swiper-button-next {
+    display: none !important;
+  }
 }
 /* Картка товару */
 .product-card {
@@ -1715,7 +1780,136 @@ img {
   fill: currentColor;
 }
 
+/* ==========================================================================
+   СЕКЦІЯ ПІДПИСКИ (SUBSCRIPTION)
+   ========================================================================== */
 
+.subscribe-section {
+  padding: 30px 0 50px;
+}
+
+.subscribe-card {
+  background-color: #cbeaa6;
+  border-radius: 16px;
+  padding: 32px 20px;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.subscribe-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 10px 0;
+}
+
+.subscribe-card__subtitle {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #333333;
+  max-width: 580px;
+  margin: 0 auto 20px;
+}
+
+/* Форма */
+.subscribe-form {
+  max-width: 520px;
+  margin: 0 auto 12px;
+}
+
+/* Контейнер-пігулка (Десктоп / Планшет) */
+.subscribe-form__field {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Інпут */
+.subscribe-form__input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px 16px 10px 24px;
+  font-size: 14px;
+  color: #333333;
+  height: 44px; /* Фіксуємо однакову висоту для чіткого вирівнювання */
+  box-sizing: border-box;
+}
+
+.subscribe-form__input::placeholder {
+  color: #888888;
+}
+
+/* Кнопка */
+.subscribe-form__btn {
+  background-color: #558b2f;
+  color: #ffffff;
+  border: none;
+  border-radius: 40px;
+  padding: 0 28px;
+  height: 44px; /* Висота збігається з інпутом, зазори дає padding батька */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.subscribe-form__btn:hover {
+  background-color: #436d24;
+}
+
+.subscribe-form__btn:active {
+  transform: scale(0.98);
+}
+
+.subscribe-card__note {
+  display: block;
+  font-size: 11px;
+  color: #555555;
+}
+
+/* ==========================================================================
+   АДАПТИВ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ (до 575px)
+   ========================================================================== */
+
+@media (max-width: 575px) {
+  .subscribe-form__field {
+    flex-direction: column;
+    align-items: center; /* ЧІТКЕ ЦЕНТРУВАННЯ кнопки та інпуту по осі */
+    background-color: transparent; /* Ховаємо спільне біле поле */
+    padding: 0;
+    gap: 12px; /* Внутрішній відступ між інпутом і кнопкою */
+  }
+
+  .subscribe-form__input {
+    width: 100%;
+    background-color: #ffffff; /* Окремий білий блок під інпут */
+    border-radius: 30px;
+    height: 48px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .subscribe-form__btn {
+    width: 60%; /* Ваша бажана ширина */
+    min-width: 180px; /* Захист від занадто вузьких екранів */
+    border-radius: 30px;
+    height: 48px;
+    margin: 0 auto; /* Повторний захист центрування */
+  }
+}
 
 /* ==========================================
    СЕКЦІЯ СТАТТЕЙ / БЛОГ
@@ -2120,3 +2314,4 @@ img {
     flex-wrap: wrap;
   } */
 }
+
