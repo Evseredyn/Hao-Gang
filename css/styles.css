@@ -44,9 +44,9 @@ body {
   background-color: var(--color-white);
   line-height: 1.5;
 }
-@media (min-width: 1921px) {
+@media (min-width: 1441px) {
   body { /* або main / body */
-    max-width: 1920px;
+    max-width: 1440px;
     margin: 0 auto;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.05); /* за бажанням: легка тінь по боках */
   }
@@ -2079,7 +2079,19 @@ img {
     font-size: 16px;
   }
 }
+@media (min-width: 1024px) {
+  .blog-posts__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
 
+/* Від 1440px — 4 картки в ряд */
+@media (min-width: 1440px) {
+  .blog-posts__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 @media (max-width: 576px) {
   .blog-posts {
     padding: 40px 0;
