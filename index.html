@@ -21,15 +21,15 @@
                 </button>
 
                 <!-- Логотип -->
-                <a href="/" class="header__logo logo">
+                <a href="./index.html" class="header__logo logo">
                     <img src="./images/logo.png" alt="Haogang Logo" class="logo__img" width="140" height="40">
                 </a>
 
                 <!-- Головна навігація (1024px+) -->
                 <nav class="header__nav nav desktop-only">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="/catalog" class="nav__link">Каталог</a></li>
-                        <li class="nav__item"><a href="/novynky" class="nav__link">Новинки</a></li>
+                        <li class="nav__item"><a href="/catalog.html" class="nav__link">Каталог</a></li>
+                        <li class="nav__item"><a href="/product-single.html" class="nav__link">Новинки</a></li>
                         <li class="nav__item"><a href="/pro-nas" class="nav__link">Про нас</a></li>
                         <li class="nav__item"><a href="/znyzhky" class="nav__link nav__link--highlight">Знижки</a></li>
                         <li class="nav__item"><a href="/dostavka" class="nav__link">Доставка та оплата</a></li>
@@ -297,60 +297,66 @@
 
                     <!-- Розділювальна лінія -->
                     <hr class="catalog-section__divider">
-
-                    <!-- 3. Блок гарантій (Інтегроване доповнення) -->
-                    <div class="catalog-guarantees">
-                        <div class="catalog-guarantees__header">
-                            <div class="catalog-guarantees__badge">
-                                <svg class="icon" width="24" height="24">
-                                    <use href="images/icons.svg#icon-shield-check"></use>
-                                </svg>
-                                <h4 class="catalog-guarantees__title">Гарантія якості Haogang</h4>
-                            </div>
-                            <div class="catalog-guarantees__text">
-                                <p class="catalog-guarantees__subtitle">Якість, якій ви можете довіряти: стандартизація складів, перевірене зберігання та повний контроль на кожному етапі.</p>
-                            </div>
+                </div>
+            </div>
+        </section>
+        <!-- Guarantees Section -->
+        <section class="guarantees-section">
+            <div class="container">
+                <div class="guarantees-block">
+                
+                    <!-- Шапка гарантій -->
+                    <div class="guarantees-block__header">
+                        <div class="guarantees-block__badge">
+                        <svg class="icon" width="24" height="24" aria-hidden="true">
+                            <use href="images/icons.svg#icon-shield-check"></use>
+                        </svg>
+                        <h2 class="guarantees-block__title">Гарантія якості Haogang</h2>
                         </div>
-
-                        <!-- Карточки гарантій -->
-                        <list class="catalog-guarantees__grid">
-                            <li class="guarantee-card">
-                                <div class="guarantee-card__icon">
-                                    <svg class="icon" width="28" height="28">
-                                        <use href="images/icons.svg#icon-badge"></use>
-                                    </svg>
-                                </div>
-                                <span class="guarantee-card__text">Оригінальна продукція</span>
-                            </li>
-
-                            <li class="guarantee-card">
-                                <div class="guarantee-card__icon">
-                                    <svg class="icon" width="28" height="28">
-                                        <use href="images/icons.svg#icon-document"></use>
-                                    </svg>
-                                </div>
-                                <span class="guarantee-card__text">Перевірений склад</span>
-                            </li>
-
-                            <li class="guarantee-card">
-                                <div class="guarantee-card__icon">
-                                    <svg class="icon" width="28" height="28">
-                                        <use href="images/icons.svg#icon-leaf"></use>
-                                    </svg>
-                                </div>
-                                <span class="guarantee-card__text">Натуральні компоненти</span>
-                            </li>
-
-                            <li class="guarantee-card">
-                                <div class="guarantee-card__icon">
-                                    <svg class="icon" width="28" height="28">
-                                        <use href="images/icons.svg#icon-truck"></use>
-                                    </svg>
-                                </div>
-                                <span class="guarantee-card__text">Швидка та надійна доставка</span>
-                            </li>
-                        </list>
+                        <p class="guarantees-block__subtitle">
+                        Якість, якій ви можете довіряти: стандартизація складів, перевірене зберігання та повний контроль на кожному етапі.
+                        </p>
                     </div>
+
+                    <!-- Сітка карток гарантій -->
+                    <ul class="guarantees-block__grid">
+                        <li class="guarantee-card">
+                        <div class="guarantee-card__icon">
+                            <svg class="icon" width="28" height="28" aria-hidden="true">
+                            <use href="images/icons.svg#icon-badge"></use>
+                            </svg>
+                        </div>
+                        <span class="guarantee-card__text">Оригінальна продукція</span>
+                        </li>
+
+                        <li class="guarantee-card">
+                        <div class="guarantee-card__icon">
+                            <svg class="icon" width="28" height="28" aria-hidden="true">
+                            <use href="images/icons.svg#icon-document"></use>
+                            </svg>
+                        </div>
+                        <span class="guarantee-card__text">Перевірений склад</span>
+                        </li>
+
+                        <li class="guarantee-card">
+                        <div class="guarantee-card__icon">
+                            <svg class="icon" width="28" height="28" aria-hidden="true">
+                            <use href="images/icons.svg#icon-leaf"></use>
+                            </svg>
+                        </div>
+                        <span class="guarantee-card__text">Натуральні компоненти</span>
+                        </li>
+
+                        <li class="guarantee-card">
+                        <div class="guarantee-card__icon">
+                            <svg class="icon" width="28" height="28" aria-hidden="true">
+                            <use href="images/icons.svg#icon-truck"></use>
+                            </svg>
+                        </div>
+                        <span class="guarantee-card__text">Швидка та надійна доставка</span>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
         </section>
@@ -432,7 +438,7 @@
                                     </button>
 
                                     <a href="#" class="product-card__image-link">
-                                        <img src="images/products/Ортопедический пластырь (1).png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
+                                        <img src="images/products/plastyr-ortopedychnii.png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
                                     </a>
                                 </div>
 
@@ -515,7 +521,7 @@
                                     </button>
 
                                     <a href="#" class="product-card__image-link">
-                                        <img src="images/products/Ортопедический пластырь (1).png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
+                                        <img src="images/products/plastyr-ortopedychnii.png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
                                     </a>
                                 </div>
 
@@ -598,7 +604,7 @@
                                     </button>
 
                                     <a href="#" class="product-card__image-link">
-                                        <img src="images/products/Ортопедический пластырь (1).png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
+                                        <img src="images/products/plastyr-ortopedychnii.png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
                                     </a>
                                 </div>
 
@@ -681,7 +687,7 @@
                                     </button>
 
                                     <a href="#" class="product-card__image-link">
-                                        <img src="images/products/Ортопедический пластырь (1).png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
+                                        <img src="images/products/plastyr-ortopedychnii.png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
                                     </a>
                                 </div>
 

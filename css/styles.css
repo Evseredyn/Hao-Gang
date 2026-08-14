@@ -44,9 +44,9 @@ body {
   background-color: var(--color-white);
   line-height: 1.5;
 }
-@media (min-width: 1441px) {
+@media (min-width: 1921px) {
   body { /* або main / body */
-    max-width: 1440px;
+    max-width: 1920px;
     margin: 0 auto;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.05); /* за бажанням: легка тінь по боках */
   }
@@ -1285,14 +1285,19 @@ img {
   border: none;
   height: 1px;
   background-color: #E0E0E0;
-  margin: 32px 0;
+  margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   3. GUARANTEES BLOCK
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   3. GUARANTEES BLOCK (СЕКЦІЯ ГАРАНТІЙ)
+   ========================================================================== */
 
-.catalog-guarantees {
+.guarantees-section {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.guarantees-block {
   background-color: #EBF3E8;
   border-radius: 16px;
   padding: 24px;
@@ -1302,35 +1307,52 @@ img {
   gap: 32px;
 }
 
-.catalog-guarantees__header {
-  /* flex: 0 0 35%; */
+.guarantees-block__header {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
   gap: 12px;
 }
 
-.catalog-guarantees__title {
+.guarantees-block__badge {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Бейдж щита (суцільна іконка з заливкою) */
+.guarantees-block__badge svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: var(--color-primary, #3B7E28);
+}
+
+.guarantees-block__title {
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-primary, #3B7E28);
-  /* margin-bottom: 8px; */
+  margin: 0;
 }
 
-.catalog-guarantees__subtitle {
+.guarantees-block__subtitle {
   font-size: 0.85rem;
   line-height: 1.4;
   color: #555555;
+  margin: 0;
 }
 
-.catalog-guarantees__grid {
+.guarantees-block__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Повертаємо однакову ширину для всіх 4 карток */
+  grid-template-columns: repeat(4, 1fr); /* Однакова ширина для всіх 4 карток */
   gap: 16px;
-  align-items: center; /* Дозволяє карткам збільшуватися по висоті незалежно одна від одної */
+  align-items: center; /* Дозволяє карткам збільшуватися по висоті незалежно */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
 
 .guarantee-card {
   background-color: #FFFFFF;
@@ -1349,40 +1371,6 @@ img {
   font-weight: 600;
   line-height: 1.2;
   color: #222222;
-  /* margin-top: 12px; */
-}
-@media (min-width: 1024px) {
-  .catalog-card__text {
-  /* font-size: 1.2rem; */
-  }
-}
-.catalog-guarantees__badge {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
-}
-/* .catalog-guarantees__badge svg {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-  color: var(--color-primary, #3B7E28);
-  fill: currentColor;
-}
-.guarantee-card__icon svg {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  color: var(--color-primary, #3B7E28);
-  stroke: currentColor;
-} */
- /* Бейдж щита (суцільна іконка з заливкою) */
-.catalog-guarantees__badge svg {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  fill: var(--color-primary, #3B7E28);
 }
 
 /* Іконки у картках (контурні іконки) */
@@ -1396,10 +1384,45 @@ img {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* ==========================================================================
+   АДАПТИВ ТА МЕДІАЗАПИТИ
+   ========================================================================== */
+
 @media (min-width: 768px) {
   .guarantee-card__icon svg {
     width: 36px;
     height: 36px;
+  }
+}
+
+@media (max-width: 1439px) {
+  .guarantees-block {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .guarantees-block__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .guarantees-block__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guarantee-card {
+    padding: 16px 20px;
+    min-height: auto;
+  }
+}
+
+/* Обмеження ширини фону для екранів понад 1440px */
+@media (min-width: 1441px) {
+  .guarantees-section .container {
+    max-width: 1440px;
+    margin: 0 auto;
   }
 }
 /* --------------------------------------------------------------------------
@@ -1609,11 +1632,12 @@ img {
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .product-card:hover {
   border-color: #b4b1b1;
+  transform: translateY(-5px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -1780,6 +1804,45 @@ img {
   fill: currentColor;
 }
 
+/* ==========================================================================
+   СЕКЦІЯ "РЕКОМЕНДУЄМО" (RECOMMENDED SECTION)
+   ========================================================================== */
+
+.recommended-section {
+  padding: 40px 0;
+  width: 100%;
+}
+
+/* Модифікатор для шапки, щоб заголовок був строго по центру */
+.products-section__header--center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.products-section__header--center .products-section__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary, #3b7e28);
+  margin: 0;
+  position: relative;
+}
+
+/* Адаптив для брекпоінту 1440px+ */
+@media (min-width: 1441px) {
+  .recommended-section .container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-section__header--center .products-section__title {
+    font-size: 1.5rem;
+  }
+}
 /* ==========================================================================
    СЕКЦІЯ ПІДПИСКИ (SUBSCRIPTION)
    ========================================================================== */
@@ -1981,7 +2044,7 @@ img {
 }
 
 .post-card:hover .post-card__image {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 .post-card__content {
@@ -2315,3 +2378,67 @@ img {
   } */
 }
 
+/* ==========================================================================
+   СЕО СЕКЦІЯ (SEO SECTION)
+   ========================================================================== */
+
+.seo-section {
+  background-color: #fcf8ee; /* Світло-бежевий фон з макету */
+  padding: 40px 0;
+  width: 100%;
+}
+
+.seo-block {
+  text-align: center;
+}
+
+.seo-block__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Обгортка WYSIWYG-редактора */
+.wysiwyg-content {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #333333;
+  text-align: justify; /* Або center / left в залежності від стилю сайту */
+  max-width: 100%;
+}
+
+/* Базові стилі для тегів з WYSIWYG */
+.wysiwyg-content p {
+  margin-bottom: 14px;
+}
+
+.wysiwyg-content p:last-child {
+  margin-bottom: 0;
+}
+
+.wysiwyg-content ul, 
+.wysiwyg-content ol {
+  margin: 10px 0 15px 20px;
+  text-align: left;
+}
+
+.wysiwyg-content a {
+  color: #558b2f;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   ОБМЕЖЕННЯ КОНТЕЙНЕРА НА ЕКРАНАХ ПОНАД 1440px
+   ========================================================================== */
+
+@media (min-width: 1441px) {
+  .seo-section .container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

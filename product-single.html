@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haogang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            
+            <!-- Верхня лінія (Mobile / Tablet / Desktop) -->
+            <div class="header__top">
+
+                <!-- Кнопка гамбургер (Mobile/Tablet) -->
+                <button class="header__burger burger-btn" type="button" aria-label="Відкрити меню" id="burgerToggle">
+                    <span class="burger-btn__icon"></span>
+                </button>
+
+                <!-- Логотип -->
+                <a href="/" class="header__logo logo">
+                    <img src="./images/logo.png" alt="Haogang Logo" class="logo__img" width="140" height="40">
+                </a>
+
+                <!-- Головна навігація (1024px+) -->
+                <nav class="header__nav nav desktop-only">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="/catalog" class="nav__link active">Каталог</a></li>
+                        <li class="nav__item"><a href="/novynky" class="nav__link">Новинки</a></li>
+                        <li class="nav__item"><a href="/pro-nas" class="nav__link">Про нас</a></li>
+                        <li class="nav__item"><a href="/znyzhky" class="nav__link nav__link--highlight">Знижки</a></li>
+                        <li class="nav__item"><a href="/dostavka" class="nav__link">Доставка та оплата</a></li>
+                        <li class="nav__item"><a href="/statti" class="nav__link">Статті</a></li>
+                        <li class="nav__item"><a href="/kontakty" class="nav__link">Контакти</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Дії користувача -->
+                <div class="header__actions user-actions">
+                    <!-- Обране (приховано на мобільних, якщо потрібно) -->
+                    <a href="/wishlist" class="user-actions__item user-actions__item--wishlist desktop-only" aria-label="Обране">
+                        <svg class="user-actions__icon" width="22" height="22"><use href="images/icons.svg#star"></use></svg>
+                    </a>
+
+                    <!-- Профіль (Тепер видимий і на мобільних за макетом) -->
+                    <a href="/my-account" class="user-actions__item user-actions__account" aria-label="Особистий кабінет">
+                        <svg class="user-actions__icon" width="22" height="22"><use href="images/icons.svg#user"></use></svg>
+                    </a>
+
+                    <!-- Кошик -->
+                    <a href="/cart" class="user-actions__item user-actions__item--cart" aria-label="Кошик">
+                        <svg class="user-actions__icon" width="22" height="22"><use href="images/icons.svg#cart"></use></svg>
+                        <span class="user-actions__badge">0</span>
+                    </a>
+
+                    <!-- Перемикач мов (1024px+) -->
+                    <div class="header__lang lang-select desktop-only">
+                        <button class="lang-select__current" type="button">
+                            <svg class="lang-select__icon" width="18" height="18"><use href="images/icons.svg#globe"></use></svg>
+                            UA
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Нижня лінія (Десктоп 1024px+: Пошук + Категорії) -->
+            <div class="header__bottom desktop-only">
+                
+                <!-- Пошук -->
+                <form class="header__search search-form" action="/search" method="get">
+                    <input type="search" class="search-form__input" placeholder="Пошук товарів..." name="s">
+                    <button type="submit" class="search-form__btn" aria-label="Шукати">
+                        <svg width="16" height="16"><use href="images/icons.svg#search"></use></svg>
+                    </button>
+                </form>
+
+                <!-- Категорії -->
+                <div class="categories-wrapper">
+                    <nav class="header__categories categories-nav">
+                        <ul class="categories-nav__list">
+                            <li class="categories-nav__item"><a href="/biodobavky" class="categories-nav__link">Біодобавки</a></li>
+                            <li class="categories-nav__item"><a href="/turmalin" class="categories-nav__link">Турмалінова продукція</a></li>
+                            <li class="categories-nav__item"><a href="/zhinkam" class="categories-nav__link">Для жінок</a></li>
+                            <li class="categories-nav__item"><a href="/cholovikam" class="categories-nav__link">Для чоловіків</a></li>
+                            <li class="categories-nav__item"><a href="/hyhiiena" class="categories-nav__link">Гігієна</a></li>
+                            <li class="categories-nav__item"><a href="/blyzna" class="categories-nav__link">Нижня білизна</a></li>
+                            <li class="categories-nav__item"><a href="/plastyri" class="categories-nav__link">Пластирі</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Кнопка перемикача -->
+                <button class="categories-toggle" id="categoriesToggle" aria-label="Розгорнути категорії">
+                    <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                        <path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero-section -->
+
+        <!-- Guarantees Section -->
+        <section class="guarantees-section">
+            <div class="container">
+                <div class="guarantees-block">
+                
+                <!-- Шапка гарантій -->
+                <div class="guarantees-block__header">
+                    <div class="guarantees-block__badge">
+                    <svg class="icon" width="24" height="24" aria-hidden="true">
+                        <use href="images/icons.svg#icon-shield-check"></use>
+                    </svg>
+                    <h2 class="guarantees-block__title">Гарантія якості Haogang</h2>
+                    </div>
+                    <p class="guarantees-block__subtitle">
+                    Якість, якій ви можете довіряти: стандартизація складів, перевірене зберігання та повний контроль на кожному етапі.
+                    </p>
+                </div>
+
+                <!-- Сітка карток гарантій -->
+                <ul class="guarantees-block__grid">
+                    <li class="guarantee-card">
+                    <div class="guarantee-card__icon">
+                        <svg class="icon" width="28" height="28" aria-hidden="true">
+                        <use href="images/icons.svg#icon-badge"></use>
+                        </svg>
+                    </div>
+                    <span class="guarantee-card__text">Оригінальна продукція</span>
+                    </li>
+
+                    <li class="guarantee-card">
+                    <div class="guarantee-card__icon">
+                        <svg class="icon" width="28" height="28" aria-hidden="true">
+                        <use href="images/icons.svg#icon-document"></use>
+                        </svg>
+                    </div>
+                    <span class="guarantee-card__text">Перевірений склад</span>
+                    </li>
+
+                    <li class="guarantee-card">
+                    <div class="guarantee-card__icon">
+                        <svg class="icon" width="28" height="28" aria-hidden="true">
+                        <use href="images/icons.svg#icon-leaf"></use>
+                        </svg>
+                    </div>
+                    <span class="guarantee-card__text">Натуральні компоненти</span>
+                    </li>
+
+                    <li class="guarantee-card">
+                    <div class="guarantee-card__icon">
+                        <svg class="icon" width="28" height="28" aria-hidden="true">
+                        <use href="images/icons.svg#icon-truck"></use>
+                        </svg>
+                    </div>
+                    <span class="guarantee-card__text">Швидка та надійна доставка</span>
+                    </li>
+                </ul>
+
+                </div>
+            </div>
+        </section>
+        <!-- Recommended Products Section -->
+        <section class="products-section recommended-section">
+            <div class="container">
+                
+                <!-- Шапка секції з відцентрованим заголовком -->
+                <div class="products-section__header products-section__header--center">
+                <h2 class="products-section__title">Рекомендуємо</h2>
+                </div>
+
+                <!-- Контейнер слайдера Swiper -->
+                <div class="products-slider swiper recommended-slider">
+                <div class="swiper-wrapper">
+                    
+                    <!-- Картка 1 -->
+                    <div class="swiper-slide">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                        <div class="product-card__badges">
+                            <span class="badge badge--hit">XIT</span>
+                            <span class="badge badge--discount">%</span>
+                            <span class="badge badge--gift" title="Подарунок">
+                            <svg width="14" height="14"><use href="#icon-gift"></use></svg>
+                            </span>
+                        </div>
+
+                        <button class="product-card__favorite" type="button" aria-label="Додати в обране">
+                            <svg width="20" height="20"><use href="#icon-heart"></use></svg>
+                        </button>
+
+                        <a href="#" class="product-card__image-link">
+                            <img src="./images/products/ganbao.png" alt="М'які капсули GANBAO" class="product-card__img" loading="lazy">
+                        </a>
+                        </div>
+
+                        <div class="product-card__content">
+                        <div class="product-card__rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-value">(5.0)</span>
+                        </div>
+
+                        <h3 class="product-card__title">
+                            <a href="#">М'які капсули GANBAO, 60 капсул</a>
+                        </h3>
+
+                        <div class="product-card__price-box">
+                            <span class="price-current">890 ГРН</span>
+                            <span class="price-old">1150 ГРН</span>
+                        </div>
+
+                        <button class="product-card__btn" type="button">
+                            <svg width="18" height="18"><use href="#cart"></use></svg>
+                            <span>В КОШИК</span>
+                        </button>
+                        </div>
+                    </article>
+                    </div>
+
+                    <!-- Картка 2 -->
+                    <div class="swiper-slide">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                        <div class="product-card__badges">
+                            <span class="badge badge--hit">XIT</span>
+                        </div>
+
+                        <button class="product-card__favorite product-card__favorite--active" type="button" aria-label="Видалити з обраного">
+                            <svg width="20" height="20"><use href="#icon-heart"></use></svg>
+                        </button>
+
+                        <a href="#" class="product-card__image-link">
+                            <img src="./images/products/plastyr-ortopedychnii.png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
+                        </a>
+                        </div>
+
+                        <div class="product-card__content">
+                        <div class="product-card__rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-value">(5.0)</span>
+                        </div>
+
+                        <h3 class="product-card__title">
+                            <a href="#">Ортопедичний пластир для суглобів, 10 шт.</a>
+                        </h3>
+
+                        <div class="product-card__price-box">
+                            <span class="price-current">730 ГРН</span>
+                        </div>
+
+                        <button class="product-card__btn" type="button">
+                            <svg width="18" height="18"><use href="#cart"></use></svg>
+                            <span>В КОШИК</span>
+                        </button>
+                        </div>
+                    </article>
+                    </div>
+
+                    <!-- Картка 3 -->
+                    <div class="swiper-slide">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                        <div class="product-card__badges">
+                            <span class="badge badge--hit">XIT</span>
+                            <span class="badge badge--discount">%</span>
+                        </div>
+
+                        <button class="product-card__favorite" type="button" aria-label="Додати в обране">
+                            <svg width="20" height="20"><use href="#icon-heart"></use></svg>
+                        </button>
+
+                        <a href="#" class="product-card__image-link">
+                            <img src="./images/products/ganbao.png" alt="М'які капсули GANBAO" class="product-card__img" loading="lazy">
+                        </a>
+                        </div>
+
+                        <div class="product-card__content">
+                        <div class="product-card__rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-value">(5.0)</span>
+                        </div>
+
+                        <h3 class="product-card__title">
+                            <a href="#">М'які капсули GANBAO, 60 капсул</a>
+                        </h3>
+
+                        <div class="product-card__price-box">
+                            <span class="price-current">890 ГРН</span>
+                            <span class="price-old">1150 ГРН</span>
+                        </div>
+
+                        <button class="product-card__btn" type="button">
+                            <svg width="18" height="18"><use href="#cart"></use></svg>
+                            <span>В КОШИК</span>
+                        </button>
+                        </div>
+                    </article>
+                    </div>
+
+                    <!-- Картка 4 -->
+                    <div class="swiper-slide">
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                        <div class="product-card__badges">
+                            <span class="badge badge--hit">XIT</span>
+                        </div>
+
+                        <button class="product-card__favorite" type="button" aria-label="Додати в обране">
+                            <svg width="20" height="20"><use href="#icon-heart"></use></svg>
+                        </button>
+
+                        <a href="#" class="product-card__image-link">
+                            <img src="./images/products/plastyr-ortopedychnii.png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
+                        </a>
+                        </div>
+
+                        <div class="product-card__content">
+                        <div class="product-card__rating">
+                            <div class="stars">★★★★★</div>
+                            <span class="rating-value">(5.0)</span>
+                        </div>
+
+                        <h3 class="product-card__title">
+                            <a href="#">Ортопедичний пластир для суглобів, 10 шт.</a>
+                        </h3>
+
+                        <div class="product-card__price-box">
+                            <span class="price-current">730 ГРН</span>
+                        </div>
+
+                        <button class="product-card__btn" type="button">
+                            <svg width="18" height="18"><use href="#cart"></use></svg>
+                            <span>В КОШИК</span>
+                        </button>
+                        </div>
+                    </article>
+                    </div>
+
+                </div>
+
+                <!-- Навігаційні стрілки Swiper -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                </div>
+
+            </div>
+        </section>
+        <!-- SEO Text Section -->
+        <section class="seo-section">
+            <div class="container">
+                <div class="seo-block">
+                    <h2 class="seo-block__title">СЕО ТЕКСТ</h2>
+                    
+                    <!-- Контейнер під WYSIWYG поле -->
+                    <div class="seo-block__content wysiwyg-content">
+                        Текстовий блок для відображення текстових матеріалів з гіперрозміткою. 
+                        Наповнення проведеться... Текстовий блок для відображення текстових 
+                        матеріалів з гіперрозміткою. Наповнення проведеться... Текстовий блок для відображення текстових матеріалів з гіперрозміткою. 
+                        Наповнення проведеться... Текстовий блок для відображення текстових 
+                        матеріалів з гіперрозміткою. Наповнення проведеться...
+                        Текстовий блок для відображення текстових матеріалів з гіперрозміткою. 
+                        Наповнення проведеться... Текстовий блок для відображення текстових 
+                        матеріалів з гіперрозміткою. Наповнення проведеться...Текстовий блок для відображення текстових матеріалів з гіперрозміткою. 
+                        Наповнення проведеться... Текстовий блок для відображення текстових 
+                        матеріалів з гіперрозміткою. Наповнення проведеться...
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contacts -->
+         <section class="section">
+            <div class="container">
+                <div class="contacts-bar__grid">
+
+                    <!-- Елемент 1: Адреса -->
+                    <div class="contacts-card contacts-card--offset">
+                        <div class="contacts-card__icon-wrap">
+                        <svg class="contacts-card__icon">
+                            <use href="./images/icons.svg#icon-location"></use>
+                        </svg>
+                        </div>
+                        <address class="contacts-card__text">Одеса, Пушкінська, 19</address>
+                    </div>
+
+                    <!-- Елемент 2: Email -->
+                    <div class="contacts-card">
+                        <div class="contacts-card__icon-wrap">
+                        <svg class="contacts-card__icon">
+                            <use href="./images/icons.svg#icon-email"></use>
+                        </svg>
+                        </div>
+                        <a href="mailto:myemail@mysite.com" class="contacts-card__text">myemail@mysite.com</a>
+                    </div>
+
+                    <!-- Елемент 3: Час роботи -->
+                    <div class="contacts-card">
+                        <div class="contacts-card__icon-wrap">
+                        <svg class="contacts-card__icon">
+                            <use href="./images/icons.svg#icon-clock"></use>
+                        </svg>
+                        </div>
+                        <span class="contacts-card__text">пн-нд с 9:00 - 22:00</span>
+                    </div>
+
+                    <!-- Елемент 4: Телефон -->
+                    <div class="contacts-card contacts-card--offset">
+                        <div class="contacts-card__icon-wrap">
+                        <svg class="contacts-card__icon">
+                            <use href="./images/icons.svg#icon-phone"></use>
+                        </svg>
+                        </div>
+                        <a href="tel:+380987654321" class="contacts-card__text">+380987654321</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer -->
+    <footer class="site-footer">
+
+        <!-- 1. ВЕРХНІЙ ЯРУС (Білий фон): Соцмережі + Лого + Платіжки -->
+        <div class="footer-trust">
+            <div class="container">
+                <div class="footer-trust__wrapper">
+                
+                    <!-- Декоративні соцмережі (ліворуч) -->
+                    <div class="footer-socials" aria-hidden="true">
+                        <svg class="footer-socials__icon"><use href="images/icons.svg#whatsapp"></use></svg>
+                        <svg class="footer-socials__icon"><use href="images/icons.svg#youtube"></use></svg>
+                        <svg class="footer-socials__icon"><use href="images/icons.svg#viber"></use></svg>
+                        <svg class="footer-socials__icon"><use href="images/icons.svg#twitter"></use></svg>
+                        <svg class="footer-socials__icon"><use href="images/icons.svg#facebook"></use></svg>
+                    </div>
+                    <!-- Логотип (центр) -->
+                    <div class="footer-trust__logo">
+                        <img src="./images/logo_large.png" alt="HaoGang Logo" class="footer-trust__img">
+                    </div>
+
+                    <!-- Декоративні платіжні системи (праворуч) -->
+                    <div class="footer-services" aria-hidden="true">
+                        <svg class="footer-services__icon"><use href="images/icons.svg#icon-visa"></use></svg>
+                        <svg class="footer-services__icon"><use href="images/icons.svg#icon-mastercard"></use></svg>
+                        <svg class="footer-services__icon"><use href="images/icons.svg#icon-apple-pay"></use></svg>
+                        <svg class="footer-services__icon"><use href="images/icons.svg#icon-google-pay"></use></svg>
+                        <svg class="footer-services__icon"><use href="images/icons.svg#nova-poshta"></use></svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. ОСНОВНИЙ ТА НИЖНІЙ ЯРУС (Зелений фон) -->
+        <div class="footer-accent-group">
+            <div class="container">
+            
+                <!-- Навігація -->
+                <div class="footer-main__grid">
+                    <div class="footer-nav">
+                    <h4 class="footer-nav__title">Каталог</h4>
+                    <ul class="footer-nav__list">
+                        <li><a href="#" class="footer-nav__link">Вітамінні комплекси</a></li>
+                        <li><a href="#" class="footer-nav__link">Антиоксиданти</a></li>
+                        <li><a href="#" class="footer-nav__link">Спортивне харчування</a></li>
+                        <li><a href="#" class="footer-nav__link">Фітопластирі</a></li>
+                    </ul>
+                    </div>
+
+                    <div class="footer-nav">
+                    <h4 class="footer-nav__title">Покупцям</h4>
+                    <ul class="footer-nav__list">
+                        <li><a href="#" class="footer-nav__link">Доставка та оплата</a></li>
+                        <li><a href="#" class="footer-nav__link">Гарантія та повернення</a></li>
+                        <li><a href="#" class="footer-nav__link">Публічна оферта</a></li>
+                        <li><a href="#" class="footer-nav__link">Політика конфіденційності</a></li>
+                    </ul>
+                    </div>
+
+                    <div class="footer-nav">
+                    <h4 class="footer-nav__title">Про HAOGANG</h4>
+                    <ul class="footer-nav__list">
+                        <li><a href="#" class="footer-nav__link">Про компанію</a></li>
+                        <li><a href="#" class="footer-nav__link">Сертифікати якості</a></li>
+                        <li><a href="#" class="footer-nav__link">Статті та блоги</a></li>
+                        <li><a href="#" class="footer-nav__link">Контакти</a></li>
+                    </ul>
+                    </div>
+
+                    <div class="footer-nav">
+                    <h4 class="footer-nav__title">Інформація</h4>
+                    <p class="footer-nav__info">Гаряча лінія: +380987654321</p>
+                    <p class="footer-nav__info">Email: myemail@mysite.com</p>
+                    <div class="footer-developer">
+                        <span>Розробка сайту:</span>
+                        <a href="#" target="_blank" rel="noopener" class="footer-developer__link">Digital Agency</a>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Розділювач та Копірайт -->
+                <div class="footer-copyright">
+                    <p class="footer-copyright__text">
+                    ©2026 Хао Ган - Продукція офіційний сайт, каталог HaoGang. Доставка від 2000 грн по Україні. Всі права захищені. Haogangweb.com.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Висувне мобільне меню (Off-canvas Drawer) -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu__overlay" id="menuOverlay"></div>
+            <div class="mobile-menu__content">
+                
+                <div class="mobile-menu__header">
+                    <!-- За макетом вгорі меню тільки іконка/кнопка або закриття -->
+                    <span></span>
+                    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрити меню">&times;</button>
+                </div>
+
+                <div class="mobile-menu__body">
+                    <!-- Блок 1: Каталог товарів -->
+                    <div class="mobile-menu__section">
+                        <h3 class="mobile-menu__title">Каталог</h3>
+                        <ul class="mobile-menu__list">
+                            <li><a href="/biodobavky" class="mobile-menu__link">Біодобавки</a></li>
+                            <li><a href="/turmalin" class="mobile-menu__link">Турмалінова продукція</a></li>
+                            <li><a href="/zhinkam" class="mobile-menu__link">Для жінок</a></li>
+                            <li><a href="/cholovikam" class="mobile-menu__link">Для чоловіків</a></li>
+                            <li><a href="/hyhiiena" class="mobile-menu__link">Гігієна</a></li>
+                            <li><a href="/blyzna" class="mobile-menu__link">Нижня білизна</a></li>
+                            <li><a href="/plastyri" class="mobile-menu__link">Пластирі</a></li>
+                        </ul>
+                    </div>
+
+                    <hr class="mobile-menu__divider">
+
+                    <!-- Блок 2: Меню сторінок -->
+                    <div class="mobile-menu__section">
+                        <h3 class="mobile-menu__title">Меню</h3>
+                        <ul class="mobile-menu__list">
+                            <li><a href="/" class="mobile-menu__link">Головна</a></li>
+                            <li><a href="/novynky" class="mobile-menu__link">Новинки</a></li>
+                            <li><a href="/pro-nas" class="mobile-menu__link">Про нас</a></li>
+                            <li><a href="/znyzhky" class="mobile-menu__link mobile-menu__link--highlight">Знижки</a></li>
+                            <li><a href="/dostavka" class="mobile-menu__link">Доставка та оплата</a></li>
+                            <li><a href="/statti" class="mobile-menu__link">Статті</a></li>
+                            <li><a href="/kontakty" class="mobile-menu__link">Контакти</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Блок 3: Контакти з круглими зеленими іконками за макетом -->
+                    <div class="mobile-menu__footer">
+                        <a href="tel:+380987654321" class="mobile-menu__contact-item">
+                            <span class="mobile-menu__icon-circle">
+                                <svg width="18" height="18"><use href="images/icons.svg#phone"></use></svg>
+                            </span>
+                            +38 098 765 43 21
+                        </a>
+
+                        <div class="mobile-menu__contact-item">
+                            <span class="mobile-menu__icon-circle">
+                                <svg width="18" height="18"><use href="images/icons.svg#globe"></use></svg>
+                            </span>
+                            UA / RU / ENG
+                        </div>
+
+                        <a href="/my-account" class="mobile-menu__contact-item">
+                            <span class="mobile-menu__icon-circle">
+                                <svg width="18" height="18"><use href="images/icons.svg#user"></use></svg>
+                            </span>
+                            Вхід / Реєстрація
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Прокрутити вгору">
+        <svg class="back-to-top__icon" viewBox="0 0 16 10">
+            <path d="M2 8L8 2L14 8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Swiper JS (бібліотека повинна завантажуватися першою) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Скрипти підключено в правильному порядку -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js" integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA==" crossorigin="anonymous"></script>
+    <script defer src="./js/mob-menu.js"></script>
+    <script defer src="./js/header.js"></script>
+    <script defer src="./js/hero-slider.js"></script>
+    <script defer src="./js/catalog.js"></script>
+    <script defer src="./js/products-slider.js"></script>
+    <script defer src="./js/scroll.js"></script>
+    <script defer src="./js/main.js"></script>
+</body>
+</html>
