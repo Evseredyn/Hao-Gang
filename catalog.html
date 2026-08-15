@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haogang</title>
+    <title>Каталог товарів — Haogang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/styles.css">
@@ -28,7 +28,7 @@
                 <!-- Головна навігація (1024px+) -->
                 <nav class="header__nav nav desktop-only">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="catalog.html" class="nav__link nav__link--current">Каталог</a></li>
+                        <li class="nav__item"><a href="./catalog.html" class="nav__link nav__link--current">Каталог</a></li>
                         <li class="nav__item"><a href="./product-single.html" class="nav__link">Новинки</a></li>
                         <li class="nav__item"><a href="/pro-nas" class="nav__link">Про нас</a></li>
                         <li class="nav__item"><a href="/znyzhky" class="nav__link nav__link--highlight">Знижки</a></li>
@@ -103,253 +103,67 @@
             </div>
         </div>
     </header>
-
     <main>
-        <!-- Hero-section -->
-
-        <!-- Guarantees Section -->
-        <section class="guarantees-section">
+        <!-- Секція "Каталог товарів" (Кругляки) -->
+        <section class="catalog-page section">
             <div class="container">
-                <div class="guarantees-block">
-                
-                <!-- Шапка гарантій -->
-                <div class="guarantees-block__header">
-                    <div class="guarantees-block__badge">
-                    <svg class="icon" width="24" height="24" aria-hidden="true">
-                        <use href="images/icons.svg#icon-shield-check"></use>
-                    </svg>
-                    <h2 class="guarantees-block__title">Гарантія якості Haogang</h2>
-                    </div>
-                    <p class="guarantees-block__subtitle">
-                    Якість, якій ви можете довіряти: стандартизація складів, перевірене зберігання та повний контроль на кожному етапі.
-                    </p>
-                </div>
+                <h1 class="page-title center">КАТАЛОГ</h1>
 
-                <!-- Сітка карток гарантій -->
-                <ul class="guarantees-block__grid">
-                    <li class="guarantee-card">
-                    <div class="guarantee-card__icon">
-                        <svg class="icon" width="28" height="28" aria-hidden="true">
-                        <use href="images/icons.svg#icon-badge"></use>
-                        </svg>
+                <!-- Використовуємо ТІ Ж САМІ класи, що й на головній -->
+                <div class="catalog-categories">
+                    
+                    <a href="#" class="category-card">
+                    <div class="category-card__image-wrapper">
+                        <img src="./images/categories/badi.png" alt="БАДи" class="category-card__img">
                     </div>
-                    <span class="guarantee-card__text">Оригінальна продукція</span>
-                    </li>
+                    <span class="category-card__title">Бади</span>
+                    </a>
 
-                    <li class="guarantee-card">
-                    <div class="guarantee-card__icon">
-                        <svg class="icon" width="28" height="28" aria-hidden="true">
-                        <use href="images/icons.svg#icon-document"></use>
-                        </svg>
+                    <a href="#" class="category-card">
+                    <div class="category-card__image-wrapper">
+                        <img src="./images/categories/tourmaline.png" alt="Турмалінова продукція" class="category-card__img">
                     </div>
-                    <span class="guarantee-card__text">Перевірений склад</span>
-                    </li>
+                    <span class="category-card__title">Турмалінова продукція</span>
+                    </a>
 
-                    <li class="guarantee-card">
-                    <div class="guarantee-card__icon">
-                        <svg class="icon" width="28" height="28" aria-hidden="true">
-                        <use href="images/icons.svg#icon-leaf"></use>
-                        </svg>
+                    <a href="#" class="category-card">
+                    <div class="category-card__image-wrapper">
+                        <img src="./images/categories/women.png" alt="Для жінок" class="category-card__img">
                     </div>
-                    <span class="guarantee-card__text">Натуральні компоненти</span>
-                    </li>
+                    <span class="category-card__title">Для жінок</span>
+                    </a>
 
-                    <li class="guarantee-card">
-                    <div class="guarantee-card__icon">
-                        <svg class="icon" width="28" height="28" aria-hidden="true">
-                        <use href="images/icons.svg#icon-truck"></use>
-                        </svg>
+                    <a href="#" class="category-card">
+                    <div class="category-card__image-wrapper">
+                        <img src="./images/categories/hygiene.png" alt="Гігієна" class="category-card__img">
                     </div>
-                    <span class="guarantee-card__text">Швидка та надійна доставка</span>
-                    </li>
-                </ul>
+                    <span class="category-card__title">Гігієна</span>
+                    </a>
 
+                    <a href="#" class="category-card">
+                    <div class="category-card__image-wrapper">
+                        <img src="./images/categories/plasters.png" alt="Пластирі" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Пластирі</span>
+                    </a>
+
+                    <!-- Додавай решту категорій з такими ж класами -->
                 </div>
             </div>
         </section>
-        <!-- Recommended Products Section -->
-        <section class="products-section recommended-section">
+        <!-- Секція "Ви розглядали" (з'являється через JS) -->
+        <section class="recently-viewed section" id="recentlyViewedSection" style="display: none;">
             <div class="container">
+                <h2 class="section-title center">Ви розглядали</h2>
                 
-                <!-- Шапка секції з відцентрованим заголовком -->
-                <div class="products-section__header products-section__header--center">
-                <h2 class="products-section__title">Рекомендуємо</h2>
+                <div class="swiper recently-swiper">
+                <div class="swiper-wrapper" id="recentlyViewedWrapper">
+                    <!-- Слайди з товарами підтягуються динамічно з localStorage -->
                 </div>
-
-                <!-- Контейнер слайдера Swiper -->
-                <div class="products-slider swiper recommended-slider">
-                <div class="swiper-wrapper">
-                    
-                    <!-- Картка 1 -->
-                    <div class="swiper-slide">
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                        <div class="product-card__badges">
-                            <span class="badge badge--hit">XIT</span>
-                            <span class="badge badge--discount">%</span>
-                            <span class="badge badge--gift" title="Подарунок">
-                            <svg width="14" height="14"><use href="#icon-gift"></use></svg>
-                            </span>
-                        </div>
-
-                        <button class="product-card__favorite" type="button" aria-label="Додати в обране">
-                            <svg width="20" height="20"><use href="#icon-heart"></use></svg>
-                        </button>
-
-                        <a href="#" class="product-card__image-link">
-                            <img src="./images/products/ganbao.png" alt="М'які капсули GANBAO" class="product-card__img" loading="lazy">
-                        </a>
-                        </div>
-
-                        <div class="product-card__content">
-                        <div class="product-card__rating">
-                            <div class="stars">★★★★★</div>
-                            <span class="rating-value">(5.0)</span>
-                        </div>
-
-                        <h3 class="product-card__title">
-                            <a href="#">М'які капсули GANBAO, 60 капсул</a>
-                        </h3>
-
-                        <div class="product-card__price-box">
-                            <span class="price-current">890 ГРН</span>
-                            <span class="price-old">1150 ГРН</span>
-                        </div>
-
-                        <button class="product-card__btn" type="button">
-                            <svg width="18" height="18"><use href="#cart"></use></svg>
-                            <span>В КОШИК</span>
-                        </button>
-                        </div>
-                    </article>
-                    </div>
-
-                    <!-- Картка 2 -->
-                    <div class="swiper-slide">
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                        <div class="product-card__badges">
-                            <span class="badge badge--hit">XIT</span>
-                        </div>
-
-                        <button class="product-card__favorite product-card__favorite--active" type="button" aria-label="Видалити з обраного">
-                            <svg width="20" height="20"><use href="#icon-heart"></use></svg>
-                        </button>
-
-                        <a href="#" class="product-card__image-link">
-                            <img src="./images/products/plastyr-ortopedychnii.png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
-                        </a>
-                        </div>
-
-                        <div class="product-card__content">
-                        <div class="product-card__rating">
-                            <div class="stars">★★★★★</div>
-                            <span class="rating-value">(5.0)</span>
-                        </div>
-
-                        <h3 class="product-card__title">
-                            <a href="#">Ортопедичний пластир для суглобів, 10 шт.</a>
-                        </h3>
-
-                        <div class="product-card__price-box">
-                            <span class="price-current">730 ГРН</span>
-                        </div>
-
-                        <button class="product-card__btn" type="button">
-                            <svg width="18" height="18"><use href="#cart"></use></svg>
-                            <span>В КОШИК</span>
-                        </button>
-                        </div>
-                    </article>
-                    </div>
-
-                    <!-- Картка 3 -->
-                    <div class="swiper-slide">
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                        <div class="product-card__badges">
-                            <span class="badge badge--hit">XIT</span>
-                            <span class="badge badge--discount">%</span>
-                        </div>
-
-                        <button class="product-card__favorite" type="button" aria-label="Додати в обране">
-                            <svg width="20" height="20"><use href="#icon-heart"></use></svg>
-                        </button>
-
-                        <a href="#" class="product-card__image-link">
-                            <img src="./images/products/ganbao.png" alt="М'які капсули GANBAO" class="product-card__img" loading="lazy">
-                        </a>
-                        </div>
-
-                        <div class="product-card__content">
-                        <div class="product-card__rating">
-                            <div class="stars">★★★★★</div>
-                            <span class="rating-value">(5.0)</span>
-                        </div>
-
-                        <h3 class="product-card__title">
-                            <a href="#">М'які капсули GANBAO, 60 капсул</a>
-                        </h3>
-
-                        <div class="product-card__price-box">
-                            <span class="price-current">890 ГРН</span>
-                            <span class="price-old">1150 ГРН</span>
-                        </div>
-
-                        <button class="product-card__btn" type="button">
-                            <svg width="18" height="18"><use href="#cart"></use></svg>
-                            <span>В КОШИК</span>
-                        </button>
-                        </div>
-                    </article>
-                    </div>
-
-                    <!-- Картка 4 -->
-                    <div class="swiper-slide">
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                        <div class="product-card__badges">
-                            <span class="badge badge--hit">XIT</span>
-                        </div>
-
-                        <button class="product-card__favorite" type="button" aria-label="Додати в обране">
-                            <svg width="20" height="20"><use href="#icon-heart"></use></svg>
-                        </button>
-
-                        <a href="#" class="product-card__image-link">
-                            <img src="./images/products/plastyr-ortopedychnii.png" alt="Ортопедичний пластир" class="product-card__img" loading="lazy">
-                        </a>
-                        </div>
-
-                        <div class="product-card__content">
-                        <div class="product-card__rating">
-                            <div class="stars">★★★★★</div>
-                            <span class="rating-value">(5.0)</span>
-                        </div>
-
-                        <h3 class="product-card__title">
-                            <a href="#">Ортопедичний пластир для суглобів, 10 шт.</a>
-                        </h3>
-
-                        <div class="product-card__price-box">
-                            <span class="price-current">730 ГРН</span>
-                        </div>
-
-                        <button class="product-card__btn" type="button">
-                            <svg width="18" height="18"><use href="#cart"></use></svg>
-                            <span>В КОШИК</span>
-                        </button>
-                        </div>
-                    </article>
-                    </div>
-
+                    <!-- Кнопки навігації Swiper -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
-
-                <!-- Навігаційні стрілки Swiper -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                </div>
-
             </div>
         </section>
         <!-- SEO Text Section -->
@@ -598,9 +412,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js" integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA==" crossorigin="anonymous"></script>
     <script defer src="./js/mob-menu.js"></script>
     <script defer src="./js/header.js"></script>
-    <script defer src="./js/hero-slider.js"></script>
-    <script defer src="./js/catalog.js"></script>
-    <script defer src="./js/products-slider.js"></script>
+    <script defer src="./js/recently-viewed.js"></script>
     <script defer src="./js/scroll.js"></script>
     <script defer src="./js/main.js"></script>
 </body>
