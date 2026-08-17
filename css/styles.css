@@ -58,6 +58,9 @@ h1, h2, h3, h4, h5, h6, p {
   text-transform: uppercase;
   text-align: center;
 }
+.page-title--left {
+  text-align: left;
+}
 .section-title {
   font-size: 24px;
   font-weight: 700;
@@ -1760,6 +1763,7 @@ img {
   flex-direction: column;
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  z-index: 12;
 }
 
 .product-card:hover {
@@ -1813,26 +1817,42 @@ img {
 .badge--discount { background-color: #1e88e5; }
 .badge--gift { background-color: #e53935; }
 
-/* Кнопка "Обране" (Сердечко) */
+/* Кнопка "Обране" (Зірочка) */
 .product-card__favorite {
   position: absolute;
   top: 10px;
   right: 10px;
   background: none;
   border: none;
+  padding: 0;
   cursor: pointer;
-  color: #71a329;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  transition: transform 0.2s ease;
+  color: #71a329; /* Акцентний колір */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--duration) var(--timing-function);
   z-index: 2;
 }
 
+/* Базовий стан: тільки контур */
+.product-card__favorite svg {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+/* Активний стан або Hover: повна заливка акцентним кольором */
 .product-card__favorite:hover,
 .product-card__favorite--active {
-  fill: currentColor;
   transform: scale(1.1);
+}
+
+.product-card__favorite:hover svg,
+.product-card__favorite--active svg {
+  fill: currentColor; /* Заливає зірочку кольором #71a329 */
 }
 
 /* Контент картки */
@@ -1903,7 +1923,7 @@ img {
 /* Кнопка в кошик */
 .product-card__btn {
   width: 100%;
-  box-sizing: border-box; /* Забороняє кнопці вилазити за межі контейнера */
+  box-sizing: border-box;
   background-color: #71a329;
   color: #fff;
   border: none;
@@ -1912,13 +1932,12 @@ img {
   font-size: 13px;
   font-weight: 700;
   
-  /* Центрування вмісту кнопки */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Відстань між текстом та іконкою (якщо є) */
+  gap: 8px;
   
-  margin: 0 auto; /* Гарантує центрування самого блоку */
+  margin: 0 auto;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -1927,8 +1946,324 @@ img {
   background-color: #5c8720;
 }
 
+/* Явно задаємо розміри та поведінку для SVG у кнопці */
 .product-card__btn svg {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
   fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Гарантуємо, що <use> заповнює весь батьківський <svg> */
+.product-card__btn svg use {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   PRODUCT SINGLE: MAIN BLOCK (GALLERY & INFO)
+   ========================================================================== */
+
+.product-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 992px) {
+  .product-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+}
+
+/* --- GALLERY STYLES --- */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  min-width: 0; /* Для коректної роботи Swiper всередині Grid */
+}
+
+/* Головний слайдер картинки */
+.product-swiper-main {
+  width: 100%;
+  border-radius: 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-swiper-main .swiper-slide {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.product-swiper-main img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Стрілки навігації в галовному фото */
+.product-swiper-main .swiper-button-prev,
+.product-swiper-main .swiper-button-next {
+  color: #16a34a; /* Акцентний зелений */
+  background: rgba(255, 255, 255, 0.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.product-swiper-main .swiper-button-prev:after,
+.product-swiper-main .swiper-button-next:after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.product-swiper-main .swiper-button-prev:hover,
+.product-swiper-main .swiper-button-next:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Мініатюри зображень (Thumbs) */
+.product-swiper-thumbs {
+  width: 100%;
+  padding: 4px 2px;
+}
+
+.product-swiper-thumbs .swiper-slide {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.product-swiper-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.thumb-item {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-color: #f8fafc;
+  overflow: hidden;
+  padding: 6px;
+  transition: border-color 0.2s;
+}
+
+.product-swiper-thumbs .swiper-slide-thumb-active .thumb-item {
+  border-color: #16a34a;
+}
+
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* --- PRODUCT INFO STYLES --- */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.product-info .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+/* Ціновий блок */
+.product-info__price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.product-info__price {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.product-info__old-price {
+  font-size: 20px;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+/* Мета-інформація (Артикул, вага) */
+.product-info__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 28px;
+}
+
+.product-info__meta p strong {
+  color: #334155;
+  font-weight: 600;
+}
+
+/* Купівля: Вибір кількості та Кнопка */
+.product-info__buy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Кнопка "У мій кошик" */
+.product-info__buy .btn--primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 100%;
+  max-width: 220px;       /* Оптимальна ширина кнопки */
+  height: 48px;           /* Чітка фіксована висота */
+  min-height: 48px;       /* Захист від стискання Flexbox-ом */
+  flex-shrink: 0;         /* Забороняємо стискати висоту */
+  
+  padding: 0 24px;
+  border-radius: 24px;    /* Радіус закруглення = 1/2 від height для ідеальної овал-форми */
+  
+  background-color: #68a326;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;         /* Нормалізуємо висоту рядка, щоб текст не виштовхував межі */
+  text-decoration: none;
+  
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.product-info__buy .btn--primary:hover {
+  background-color: #5a8f20;
+}
+
+.product-info__buy .btn--primary:active {
+  transform: translateY(1px);
+}
+/* Вибір кількості */
+.quantity-picker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  padding: 4px;
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  max-width: 180px; /* Контрольована ширина лічильника */
+}
+
+.quantity-picker__btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+}
+
+.quantity-picker__input {
+  width: 40px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.quantity-picker__btn:hover {
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.quantity-picker__input::-webkit-outer-spin-button,
+.quantity-picker__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Кнопка купити */
+.product-info__buy .btn--primary {
+  flex: 1;
+  min-width: 180px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #71a329;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.product-info__buy .btn--primary:hover {
+  background-color: #5c8720;
+  transform: translateY(-1px);
+}
+
+.product-info__buy .btn--primary:active {
+  transform: translateY(0);
 }
 
 /* ==========================================================================
@@ -1969,6 +2304,32 @@ img {
   .products-section__header--center .products-section__title {
     font-size: 1.5rem;
   }
+}
+/* Контейнер секції з відступами для запобігання скроллу */
+.recommended-section {
+  position: relative;
+  overflow: hidden; /* Гарантує відсутність горизонтального скролу сторінки */
+}
+
+/* Слайдер: залишаємо overflow: hidden, але додаємо padding під рамку/тінь */
+.recommended-slider {
+  overflow: hidden; 
+  padding: 12px 6px; /* Запас місця згори, знизу та з боків для рамки/тіні */
+  margin: 0;         /* Жодних від'ємних margin! */
+}
+
+/* Переконуємося, що картки гарно реагують на hover */
+.recommended-slider .swiper-slide {
+  height: auto; /* Щоб усі картки були однакові за висотою */
+}
+
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* При наведенні картка піднімається або підсвічується в межах свого padding */
+.product-card:hover {
+  z-index: 2;
 }
 /* ==========================================================================
    СЕКЦІЯ ПІДПИСКИ (SUBSCRIPTION)
@@ -2661,11 +3022,14 @@ img {
     width: 55%;
   }
 }
-
+.swiper-wrapper {
+  gap: 8px;
+}
 /* Стилізація мініатюр */
 .product-swiper-thumbs {
   margin-top: 16px;
-  padding: 4px;
+  padding: 4px 4px 16px 4px;
+  overflow: hidden;
 }
 
 .product-swiper-thumbs .swiper-slide {
@@ -2682,7 +3046,7 @@ img {
 
 .thumb-item {
   width: 100%;
-  height: 100%;
+  height: 80%;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   display: flex;
@@ -2774,4 +3138,37 @@ img {
   .accordion-header {
     display: none;
   }
+}
+
+/* 1. Ширина всього скролбару */
+::-webkit-scrollbar {
+  width: 18px; /* Робимо широку смугу */
+}
+
+/* 2. Фон дорожки (треку) */
+::-webkit-scrollbar-track {
+  background-color: #e2e8f0; /* Помітний світло-сірий фон, як у системного */
+  border-left: 1px solid #cbd5e1; /* Легкий контур зліва для чіткої межі */
+}
+
+/* 3. Сам зелений ползунок */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent); /* Твій акцентний зелений */
+  border-radius: 4px;        /* Легке заокруглення кутів (як у системних блоків) */
+  border: 2px solid #e2e8f0; /* Внутрішній відступ від треку */
+}
+
+/* 4. Стан при наведенні та затисканні */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #3f6615;
+}
+
+/* Для Firefox */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #68a326 #e2e8f0;
 }
