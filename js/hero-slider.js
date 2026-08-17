@@ -9,8 +9,13 @@ window.addEventListener('DOMContentLoaded', () => {
         heroSwiper = new Swiper('.hero-section__swiper', {
           slidesPerView: 1,
           spaceBetween: 16,
-          autoHeight: false,
           loop: true,
+          
+          /* ВАЖЛИВО: Виправляє баг зi стисненням/зсувом слайдів при loop */
+          loopAdditionalSlides: 2,
+          watchSlidesProgress: true,
+          
+          autoHeight: false,
           speed: 300,
           watchOverflow: true,
           

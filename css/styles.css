@@ -737,44 +737,42 @@ img {
   color: var(--color-accent) !important;
 }
 
-/* ==========================================================================
-   HERO SECTION / SLIDER & GRID (COMPLETE MONOLITHIC CSS)
-   ========================================================================== */
-
-.hero-section {
-  padding: 20px 0;
-  width: 100%;
-}
-
-/* Контейнер слайдера */
-.hero-section__swiper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 30px; /* Місце під пагінацію внизу */
-}
-
-.hero-section__wrapper {
-  align-items: stretch;
-}
 
 /* ==========================================================================
    HERO SECTION / SLIDER & GRID (COMPLETE MONOLITHIC CSS)
    ========================================================================== */
 
+/* Базовий контейнер секції — дозволяємо показувати сусідні слайди за межами контейнера */
 .hero-section {
   padding: 20px 0;
   width: 100%;
+  overflow: hidden; /* Запобігає появі горизонтального скролу всієї сторінки */
 }
 
-/* Контейнер слайдера */
+/* Обгортка слайдера */
 .hero-section__swiper {
   position: relative;
   width: 100%;
-  padding-bottom: 28px; /* Відступ під пагінацію */
+  padding-bottom: 28px;
   
-  /* Бокові відступи для зручного тач-свайпу та запобігання прилипання до країв */
-  padding-left: 4px;
-  padding-right: 4px;
+  /* ВАЖЛИВО: overflow має бути hidden, щоб за межами слайдера слайди не вилазили виродливо */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Якщо хочеш ефект "караселі" (видимі шматочки сусідніх слайдів) на планшетах/мобілках */
+@media (max-width: 1024px) {
+  .hero-section__swiper {
+    /* Додаємо внутрішні padding, щоб сусідні слайди потрапляли у видиму область */
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+  }
+
+  .hero-card.swiper-slide {
+    height: auto;
+    box-sizing: border-box;
+  }
 }
 
 .hero-section__wrapper {
@@ -2271,7 +2269,7 @@ img {
    ========================================================================== */
 
 .recommended-section {
-  padding: 40px 0;
+  padding: 40px 0 80px;
   width: 100%;
 }
 
@@ -2313,9 +2311,9 @@ img {
 
 /* Слайдер: залишаємо overflow: hidden, але додаємо padding під рамку/тінь */
 .recommended-slider {
-  overflow: hidden; 
-  padding: 12px 6px; /* Запас місця згори, знизу та з боків для рамки/тіні */
-  margin: 0;         /* Жодних від'ємних margin! */
+  overflow: visible !important;
+  padding-bottom: 16px; /* Додатковий відступ знизу під тінь/кнопку */
+  margin-bottom: -16px;
 }
 
 /* Переконуємося, що картки гарно реагують на hover */
@@ -2992,7 +2990,7 @@ img {
   bottom: -2px; /* Накладається точно на нижній border батьківського контейнера */
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 6px;
   background-color: #2b7a3e;
   transform: scaleX(0);
   transform-origin: left;
@@ -3018,7 +3016,6 @@ img {
 .tab-pane.active {
   display: block;
 }
-
 /* Основний блок: галерея ліворуч, інфо праворуч */
 .product-main {
   display: flex;
@@ -3043,7 +3040,7 @@ img {
   }
 }
 .swiper-wrapper {
-  gap: 8px;
+  /* gap: 8px; */
 }
 /* Стилізація мініатюр */
 .product-swiper-thumbs {
