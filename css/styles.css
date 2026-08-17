@@ -2558,16 +2558,220 @@ img {
   text-decoration: underline;
 }
 
-/* ==========================================================================
-   ОБМЕЖЕННЯ КОНТЕЙНЕРА НА ЕКРАНАХ ПОНАД 1440px
-   ========================================================================== */
+/* --- WYSIWYG Content Styles --- */
+.wysiwyg-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a4a4a;
+}
 
-@media (min-width: 1441px) {
-  .seo-section .container {
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+.wysiwyg-content p {
+  margin-bottom: 16px;
+}
+
+/* Акцентне виділення (зелений або фірмовий колір як у прикладах) */
+.wysiwyg-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b7a3e; /* Акцентний колір для заголовків всередині тексту */
+  margin-top: 24px;
+  margin-bottom: 16px;
+  text-transform: none;
+}
+
+.wysiwyg-content strong {
+  color: #111111; /* Чорний колір для акцентного жирного тексту */
+  font-weight: 700;
+}
+
+.wysiwyg-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.wysiwyg-list li {
+  margin-bottom: 10px;
+}
+
+.wysiwyg-note {
+  background-color: #f5f9f6;
+  border-left: 4px solid #2b7a3e;
+  padding: 16px;
+  margin-top: 24px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* --- Tabs Nav Styles --- */
+.product-tabs__nav {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.product-tabs__btn {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666666;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.product-tabs__btn.active,
+.product-tabs__btn:hover {
+  color: #2b7a3e;
+  border-bottom-color: #2b7a3e;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Основний блок: галерея ліворуч, інфо праворуч */
+.product-main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .product-main {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .product-gallery {
+    width: 45%;
+    flex-shrink: 0;
+  }
+  
+  .product-info {
+    width: 55%;
+  }
+}
+
+/* Стилізація мініатюр */
+.product-swiper-thumbs {
+  margin-top: 16px;
+  padding: 4px;
+}
+
+.product-swiper-thumbs .swiper-slide {
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+
+.product-swiper-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.thumb-item {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+.product-swiper-thumbs .swiper-slide-thumb-active .thumb-item {
+  border-color: #2b7a3e; /* Акцентна рамка активної мініатюри */
+}
+
+.thumb-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.thumb-item--video {
+  background: #f8f8f8;
+  color: #e53935; /* Червона кнопка Play як на скриншоті */
+}
+
+.play-icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* Мобільна адаптація табів у вертикальний акордеон */
+@media (max-width: 767px) {
+  /* Ховаємо десктопну панель кнопок */
+  .product-tabs__nav {
+    display: none;
+  }
+
+  .product-tabs {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  /* Кожен таб стає блоком акордеона */
+  .tab-pane {
+    display: block !important;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #333333;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  /* Галочка / стрілочка праворуч */
+  .accordion-header::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
+    transform: rotate(-45deg); /* Стрілочка вправо або вниз */
+    transition: transform 0.3s ease;
+  }
+
+  /* Ховаємо контент акордеона за замовчуванням */
+  .tab-pane .wysiwyg-content {
+    display: none;
+    padding-bottom: 16px;
+  }
+
+  /* Відкритий стан акордеона */
+  .tab-pane.accordion-open .wysiwyg-content {
+    display: block;
+  }
+
+  .tab-pane.accordion-open .accordion-header::after {
+    transform: rotate(45deg); /* Поворот галочки при відкритті */
+  }
+}
+
+/* На десктопі акордеон-заголовки ховаємо */
+@media (min-width: 768px) {
+  .accordion-header {
+    display: none;
   }
 }
