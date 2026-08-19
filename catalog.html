@@ -114,51 +114,108 @@
                 
                 <a href="#" class="category-card">
                     <div class="category-card__icon-wrapper">
-                    <img src="./images/products/ganbao.png" alt="БАДи" class="category-card__img">
+                    <img src="./images/products/plastyri/plastyr-ortopedychnii.png" alt="БАДи" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Пластирі</span>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-card__icon-wrapper">
+                    <img src="./images/products/bady/ganbao.png" alt="БАДи" class="category-card__img">
                     </div>
                     <span class="category-card__title">Бади</span>
                 </a>
 
                 <a href="#" class="category-card">
                     <div class="category-card__icon-wrapper">
-                    <img src="./images/products/cordyceps.png" alt="Турмалінова продукція" class="category-card__img">
+                    <img src="./images/products/turmalin/nakladka-na-shyu.png" alt="Турмалінова продукція" class="category-card__img">
                     </div>
                     <span class="category-card__title">Турмалінова продукція</span>
                 </a>
 
                 <a href="#" class="category-card">
                     <div class="category-card__icon-wrapper">
-                    <img src="./images/products/ganbao.png" alt="Для жінок" class="category-card__img">
+                    <img src="./images/products/for-women/clean-point-zhenskaya-gigiena.png" alt="Для жінок" class="category-card__img">
                     </div>
-                    <span class="category-card__title">Для жінок</span>
+                    <span class="category-card__title">Жіноче здоров'я</span>
                 </a>
 
                 <a href="#" class="category-card">
                     <div class="category-card__icon-wrapper">
-                    <img src="./images/products/ganbao.png" alt="Гігієна" class="category-card__img">
+                    <img src="./images/products/care/mylo-dlia-muzchin4-in-1.png" alt="Гігієна" class="category-card__img">
                     </div>
                     <span class="category-card__title">Гігієна</span>
                 </a>
 
                 <a href="#" class="category-card">
                     <div class="category-card__icon-wrapper">
-                    <img src="./images/products/plastyr-ortopedychnii.png" alt="Пластирі" class="category-card__img">
+                    <img src="./images/products/chai/chaj-hao-gan.png" alt="Chai" class="category-card__img">
                     </div>
-                    <span class="category-card__title">Пластирі</span>
+                    <span class="category-card__title">Чай</span>
                 </a>
-
+                
+                <a href="#" class="category-card">
+                    <div class="category-card__icon-wrapper">
+                    <img src="./images/products/underwear/#" alt="Underwear" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Нижня білизна</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-card__icon-wrapper">
+                    <img src="./images/products/towel/bath-towel.png" alt="Towel" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Рушники</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-card__icon-wrapper">
+                    <img src="./images/products/ozonator/cars-ozonator.png" alt="Ozonator" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Озонатор-іонізатор</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-card__icon-wrapper">
+                    <img src="./images/products/buckwheat/matras-girka-grechyha.jpg" alt="Grechyha" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Гірка гречиха</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-card__icon-wrapper">
+                    <img src="./images/products/chinford/#" alt="CHINFOND" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Серія CHINFOND</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-card__icon-wrapper">
+                    <img src="./images/products/healthwish/#" alt="HEALTHWISH" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Серія HEALTHWISH</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-card__icon-wrapper">
+                    <img src="./images/products/haogan/#" alt="HAOGAN" class="category-card__img">
+                    </div>
+                    <span class="category-card__title">Серія HAOGAN</span>
+                </a>
                 </div>
             </div>
         </section>
-        <!-- Секція "Ви розглядали" (з'являється через JS) -->
-        <section class="recently-viewed section" id="recentlyViewedSection" style="display: none;">
+        <!-- Секція "Ви розглядали" -->
+        <section class="recently-viewed section products-section" id="recentlyViewedSection" style="display: none;">
             <div class="container">
                 <h2 class="section-title">Ви розглядали</h2>
                 
-                <div class="swiper recently-swiper">
-                <div class="swiper-wrapper" id="recentlyViewedWrapper">
-                    <!-- Слайди з товарами підтягуються динамічно з localStorage -->
-                </div>
+                <!-- Додано клас products-slider для уніфікації з іншими слайдерами -->
+                <div class="swiper recently-swiper products-slider">
+                    <div class="swiper-wrapper" id="recentlyViewedWrapper">
+                        <!-- Слайди з товарами підтягуються динамічно з localStorage -->
+                    </div>
+                    
                     <!-- Кнопки навігації Swiper -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
