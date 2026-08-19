@@ -3189,3 +3189,328 @@ html {
   scrollbar-width: auto;
   scrollbar-color: #68a326 #e2e8f0;
 }
+
+
+
+
+
+/* ==========================================================================
+   Стилі для нової сторінки Доставки та Оплати (.contacts-section)
+   ========================================================================== */
+
+.contacts-section__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary, #000);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .contacts-section__title {
+    font-size: 36px;
+    text-align: left;
+  }
+}
+
+.contacts-block {
+  margin-bottom: 48px;
+}
+
+.contacts-block__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-primary, #000);
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 14px;
+}
+
+.contacts-block__title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  width: 4px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* Нова сітка контактів у блоці доставки */
+.delivery-contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .delivery-contacts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Нова картка з унікальною назвою (ніяких конфліктів із .contacts-card) */
+.delivery-contact-card {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 16px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.delivery-contact-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.delivery-contact-card__icon svg {
+  fill: currentColor;
+}
+
+.delivery-contact-card__label {
+  display: block;
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 4px;
+}
+
+.delivery-contact-card__link {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.delivery-contact-card__link:hover {
+  color: var(--color-primary);
+}
+
+.delivery-contact-card__subtext {
+  font-size: 13px;
+  color: #666666;
+  margin-top: 4px;
+}
+
+.delivery-contact-card__messengers {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.messenger-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.messenger-btn:hover {
+  opacity: 0.85;
+}
+
+.messenger-btn--tg {
+  background-color: #229ed9;
+}
+
+.messenger-btn--viber {
+  background-color: #7360f2;
+}
+
+/* Баннер та сітка варіантів доставки */
+.contacts-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background-color: #f5f5f5;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.contacts-banner__icon {
+  font-size: 24px;
+}
+
+.contacts-banner__text {
+  font-size: 15px;
+  color: #333333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.contacts-banner__text .highlight {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.delivery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 576px) {
+  .delivery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.info-card {
+  padding: 20px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.info-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.info-card__badge {
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.info-card__badge--np {
+  background-color: #e52d27;
+  color: #ffffff;
+}
+
+.info-card__badge--up {
+  background-color: #f7931e;
+  color: #ffffff;
+}
+
+.info-card__time {
+  font-size: 13px;
+  color: #666666;
+  font-weight: 500;
+}
+
+.info-card__list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #333333;
+}
+
+.info-card__list li {
+  margin-bottom: 6px;
+}
+
+/* Оплата та юридичні блоки */
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .payment-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.payment-card {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.payment-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.payment-card__desc {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.payment-card__icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pay-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.contacts-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .contacts-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.info-box {
+  padding: 20px;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.info-box__sub {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #666666;
+}
+
+.info-box--legal {
+  background-color: #ffffff;
+}
+
+.legal-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666666;
+}
+
+.legal-list li {
+  margin-bottom: 4px;
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог товарів — Haogang</title>
+    <title>Haogang</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/styles.css">
@@ -28,7 +28,7 @@
                 <!-- Головна навігація (1024px+) -->
                 <nav class="header__nav nav desktop-only">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="./catalog.html" class="nav__link nav__link--current">Каталог</a></li>
+                        <li class="nav__item"><a href="./catalog.html" class="nav__link">Каталог</a></li>
                         <li class="nav__item"><a href="./product-single.html" class="nav__link">Новинки</a></li>
                         <li class="nav__item"><a href="/pro-nas" class="nav__link">Про нас</a></li>
                         <li class="nav__item"><a href="/znyzhky" class="nav__link nav__link--highlight">Знижки</a></li>
@@ -104,193 +104,194 @@
         </div>
     </header>
     <main>
-        <!-- Секція "Каталог товарів" (Кругляки) -->
-        <section class="catalog-page section">
-            <div class="container">
-                <h1 class="page-title">КАТАЛОГ</h1>
+        <!-- Contacts-section (Доставка, оплата та контакти) -->
+        <section class="section contacts-section">
+        <div class="container">
+            
+            <h1 class="contacts-section__title">Доставка, оплата та контакти</h1>
 
-                <!-- Контейнер сітки -->
-                <div class="catalog-page__grid">
+            <!-- Блок 1: Контакти та онлайн-підтримка (З НОВИМИ УНІКАЛЬНИМИ КЛАСАМИ) -->
+            <div class="contacts-block">
+            <h2 class="contacts-block__title">Зв'яжіться з нами</h2>
+            <div class="delivery-contacts-grid">
                 
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/plastyri/plastyr-ortopedychnii.png" alt="БАДи" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Пластирі</span>
-                </a>
+                <!-- Телефон -->
+                <div class="delivery-contact-card">
+                <div class="delivery-contact-card__icon">
+                    <svg width="24" height="24"><use href="images/icons.svg#icon-phone"></use></svg>
+                </div>
+                <div class="delivery-contact-card__info">
+                    <span class="delivery-contact-card__label">Зателефонувати</span>
+                    <a href="tel:+380991234567" class="delivery-contact-card__link">+38 (099) 123-45-67</a>
+                    <p class="delivery-contact-card__subtext">Пн-Сб: 09:00 – 19:00, Нд: Вихідний</p>
+                </div>
+                </div>
 
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/bady/ganbao.png" alt="БАДи" class="category-card__img">
+                <!-- Месенджери -->
+                <div class="delivery-contact-card">
+                <div class="delivery-contact-card__icon">
+                    <svg width="24" height="24"><use href="images/icons.svg#icon-chat"></use></svg>
+                </div>
+                <div class="delivery-contact-card__info">
+                    <span class="delivery-contact-card__label">Швидкий чат у месенджерах</span>
+                    <div class="delivery-contact-card__messengers">
+                    <a href="https://t.me/your_bot" target="_blank" class="messenger-btn messenger-btn--tg">Telegram</a>
+                    <a href="viber://chat?number=%2B380991234567" class="messenger-btn messenger-btn--viber">Viber</a>
                     </div>
-                    <span class="category-card__title">Бади</span>
-                </a>
+                </div>
+                </div>
 
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/turmalin/nakladka-na-shyu.png" alt="Турмалінова продукція" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Турмалінова продукція</span>
-                </a>
+                <!-- Email -->
+                <div class="delivery-contact-card">
+                <div class="delivery-contact-card__icon">
+                    <svg width="24" height="24"><use href="images/icons.svg#icon-email"></use></svg>
+                </div>
+                <div class="delivery-contact-card__info">
+                    <span class="delivery-contact-card__label">Електронна пошта</span>
+                    <a href="mailto:info@yourshop.com" class="delivery-contact-card__link">info@yourshop.com</a>
+                    <p class="delivery-contact-card__subtext">Для питань та співпраці</p>
+                </div>
+                </div>
 
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/for-women/clean-point-zhenskaya-gigiena.png" alt="Для жінок" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Жіноче здоров'я</span>
-                </a>
+            </div>
+            </div>
 
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/care/mylo-dlia-muzchin4-in-1.png" alt="Гігієна" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Гігієна</span>
-                </a>
+            <!-- Блок 2: Способи доставки -->
+            <div class="contacts-block">
+            <h2 class="contacts-block__title">Варіанти доставки</h2>
+            
+            <div class="contacts-banner">
+                <div class="contacts-banner__icon">⚡</div>
+                <p class="contacts-banner__text">
+                Замовлення, оформлені <strong>до 15:00</strong>, відправляються в той самий день! <br>
+                <span class="highlight">Безкоштовна доставка</span> для замовлень від 2 000 грн.
+                </p>
+            </div>
 
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/chai/chaj-hao-gan.png" alt="Chai" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Чай</span>
-                </a>
-                
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/underwear/#" alt="Underwear" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Нижня білизна</span>
-                </a>
-                
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/towel/bath-towel.png" alt="Towel" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Рушники</span>
-                </a>
-                
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/ozonator/cars-ozonator.png" alt="Ozonator" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Озонатор-іонізатор</span>
-                </a>
-                
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/buckwheat/matras-girka-grechyha.jpg" alt="Grechyha" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Гірка гречиха</span>
-                </a>
-                
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/chinford/#" alt="CHINFOND" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Серія CHINFOND</span>
-                </a>
-                
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/healthwish/#" alt="HEALTHWISH" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Серія HEALTHWISH</span>
-                </a>
-                
-                <a href="#" class="category-card">
-                    <div class="category-card__icon-wrapper">
-                    <img src="./images/products/haogan/#" alt="HAOGAN" class="category-card__img">
-                    </div>
-                    <span class="category-card__title">Серія HAOGAN</span>
-                </a>
+            <div class="delivery-grid">
+                <div class="info-card">
+                <div class="info-card__header">
+                    <span class="info-card__badge info-card__badge--np">Нова Пошта</span>
+                    <span class="info-card__time">1–2 дні</span>
+                </div>
+                <ul class="info-card__list">
+                    <li>У відділення по Україні</li>
+                    <li>У поштомати Нової Пошти</li>
+                    <li>Кур'єром до дверей</li>
+                </ul>
+                </div>
+
+                <div class="info-card">
+                <div class="info-card__header">
+                    <span class="info-card__badge info-card__badge--up">Укрпошта</span>
+                    <span class="info-card__time">2–5 днів</span>
+                </div>
+                <ul class="info-card__list">
+                    <li>Експрес та Стандарт доставка</li>
+                    <li>Бюджетний варіант по всій Україні</li>
+                    <li>Отримання у будь-якому відділенні</li>
+                </ul>
                 </div>
             </div>
+            </div>
+
+            <!-- Блок 3: Способи оплати -->
+            <div class="contacts-block">
+            <h2 class="contacts-block__title">Оплата замовлення</h2>
+            <div class="payment-grid">
+                <div class="payment-card">
+                <h3 class="payment-card__title">Онлайн-оплата на сайті</h3>
+                <p class="payment-card__desc">Безбезпечна оплата карткою будь-якого банку без комісії.</p>
+                <div class="payment-card__icons">
+                    <span class="pay-tag">Apple Pay</span>
+                    <span class="pay-tag">Google Pay</span>
+                    <span class="pay-tag">Monobank</span>
+                    <span class="pay-tag">LiqPay</span>
+                    <span class="pay-tag">Visa / Mastercard</span>
+                </div>
+                </div>
+
+                <div class="payment-card">
+                <h3 class="payment-card__title">Післяплата (Накладений платіж)</h3>
+                <p class="payment-card__desc">Оплата при отриманні у відділенні «Нова Пошта» або «Укрпошта» після огляду товару.</p>
+                </div>
+
+                <div class="payment-card">
+                <h3 class="payment-card__title">Оплата за реквізитами (IBAN)</h3>
+                <p class="payment-card__desc">Прямий переказ на офіційний розрахунковий рахунок ФОП. Реквізити надаються після підтвердження замовлення.</p>
+                </div>
+            </div>
+            </div>
+
+            <!-- Блок 4: Обмін та юр. інформація -->
+            <div class="contacts-footer-grid">
+            <div class="contacts-block">
+                <h2 class="contacts-block__title">Обмін та повернення</h2>
+                <div class="info-box">
+                <p>Ви можете повернути або обміняти товар протягом <strong>14 днів</strong> з моменту отримання відповідно до Закону України «Про захист прав споживачів».</p>
+                <p class="info-box__sub">Товар повинен зберегти товарний вигляд, комплектацію та цілісність упаковки. Для оформлення повернення зверніться в наш Telegram або за телефоном.</p>
+                </div>
+            </div>
+
+            <div class="contacts-block">
+                <h2 class="contacts-block__title">Юридична інформація</h2>
+                <div class="info-box info-box--legal">
+                <p><strong>Інтернет-магазин працює офіційно.</strong></p>
+                <ul class="legal-list">
+                    <li>ФОП Сергієнко Олексій Володимирович</li>
+                    <li>ІПН/ЄДРПОУ: 3123456789</li>
+                    <li>Онлайн-продаж товарів по всій Україні</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+
+        </div>
         </section>
-        <!-- Секція "Ви розглядали" -->
-        <section class="recently-viewed section products-section" id="recentlyViewedSection" style="display: none;">
-            <div class="container">
-                <h2 class="section-title">Ви розглядали</h2>
-                
-                <!-- Додано клас products-slider для уніфікації з іншими слайдерами -->
-                <div class="swiper recently-swiper products-slider">
-                    <div class="swiper-wrapper" id="recentlyViewedWrapper">
-                        <!-- Слайди з товарами підтягуються динамічно з localStorage -->
-                    </div>
-                    
-                    <!-- Кнопки навігації Swiper -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+
+        <!-- Скрізна плашка контактів (оригінальні класи збережено) -->
+        <section class="section">
+        <div class="container">
+            <div class="contacts-bar__grid">
+
+            <div class="contacts-card contacts-card--offset">
+                <div class="contacts-card__icon-wrap">
+                <svg class="contacts-card__icon">
+                    <use href="./images/icons.svg#icon-location"></use>
+                </svg>
                 </div>
+                <address class="contacts-card__text">Одеса, Пушкінська, 19</address>
             </div>
-        </section>
-        <!-- SEO Text Section -->
-        <section class="seo-section">
-            <div class="container">
-                <div class="seo-block">
-                    <h2 class="section-title">СЕО ТЕКСТ</h2>
-                    
-                    <!-- Контейнер під WYSIWYG поле -->
-                    <div class="seo-block__content wysiwyg-content">
-                        Текстовий блок для відображення текстових матеріалів з гіперрозміткою. 
-                        Наповнення проведеться... Текстовий блок для відображення текстових 
-                        матеріалів з гіперрозміткою. Наповнення проведеться... Текстовий блок для відображення текстових матеріалів з гіперрозміткою. 
-                        Наповнення проведеться... Текстовий блок для відображення текстових 
-                        матеріалів з гіперрозміткою. Наповнення проведеться...
-                        Текстовий блок для відображення текстових матеріалів з гіперрозміткою. 
-                        Наповнення проведеться... Текстовий блок для відображення текстових 
-                        матеріалів з гіперрозміткою. Наповнення проведеться...Текстовий блок для відображення текстових матеріалів з гіперрозміткою. 
-                        Наповнення проведеться... Текстовий блок для відображення текстових 
-                        матеріалів з гіперрозміткою. Наповнення проведеться...
-                    </div>
+
+            <div class="contacts-card">
+                <div class="contacts-card__icon-wrap">
+                <svg class="contacts-card__icon">
+                    <use href="./images/icons.svg#icon-email"></use>
+                </svg>
                 </div>
+                <a href="mailto:myemail@mysite.com" class="contacts-card__text">myemail@mysite.com</a>
             </div>
-        </section>
-        <!-- Contacts -->
-         <section class="section">
-            <div class="container">
-                <div class="contacts-bar__grid">
 
-                    <!-- Елемент 1: Адреса -->
-                    <div class="contacts-card contacts-card--offset">
-                        <div class="contacts-card__icon-wrap">
-                        <svg class="contacts-card__icon">
-                            <use href="./images/icons.svg#icon-location"></use>
-                        </svg>
-                        </div>
-                        <address class="contacts-card__text">Одеса, Пушкінська, 19</address>
-                    </div>
-
-                    <!-- Елемент 2: Email -->
-                    <div class="contacts-card">
-                        <div class="contacts-card__icon-wrap">
-                        <svg class="contacts-card__icon">
-                            <use href="./images/icons.svg#icon-email"></use>
-                        </svg>
-                        </div>
-                        <a href="mailto:myemail@mysite.com" class="contacts-card__text">myemail@mysite.com</a>
-                    </div>
-
-                    <!-- Елемент 3: Час роботи -->
-                    <div class="contacts-card">
-                        <div class="contacts-card__icon-wrap">
-                        <svg class="contacts-card__icon">
-                            <use href="./images/icons.svg#icon-clock"></use>
-                        </svg>
-                        </div>
-                        <span class="contacts-card__text">пн-нд с 9:00 - 22:00</span>
-                    </div>
-
-                    <!-- Елемент 4: Телефон -->
-                    <div class="contacts-card contacts-card--offset">
-                        <div class="contacts-card__icon-wrap">
-                        <svg class="contacts-card__icon">
-                            <use href="./images/icons.svg#icon-phone"></use>
-                        </svg>
-                        </div>
-                        <a href="tel:+380987654321" class="contacts-card__text">+380987654321</a>
-                    </div>
-
+            <div class="contacts-card">
+                <div class="contacts-card__icon-wrap">
+                <svg class="contacts-card__icon">
+                    <use href="./images/icons.svg#icon-clock"></use>
+                </svg>
                 </div>
+                <span class="contacts-card__text">пн-нд с 9:00 - 22:00</span>
             </div>
+
+            <div class="contacts-card contacts-card--offset">
+                <div class="contacts-card__icon-wrap">
+                <svg class="contacts-card__icon">
+                    <use href="./images/icons.svg#icon-phone"></use>
+                </svg>
+                </div>
+                <a href="tel:+380987654321" class="contacts-card__text">+380987654321</a>
+            </div>
+
+            </div>
+        </div>
         </section>
     </main>
         <!-- Footer -->
@@ -468,7 +469,9 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js" integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA==" crossorigin="anonymous"></script>
     <script defer src="./js/mob-menu.js"></script>
     <script defer src="./js/header.js"></script>
-    <script defer src="./js/recently-viewed.js"></script>
+    <script defer src="./js/hero-slider.js"></script>
+    <script defer src="./js/catalog.js"></script>
+    <script defer src="./js/products-slider.js"></script>
     <script defer src="./js/scroll.js"></script>
     <script defer src="./js/main.js"></script>
 </body>
